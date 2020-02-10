@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Présentation du langage </title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="images/logo.gif">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<img width="100%" height="190px" src="images/learn.jpg">
+	<nav id="top_barre">
+		<button id="cacher" onclick="cacher()">⬱</button>
+		<ul>
+			<li><a href="index.html"><img width="40px" height="20px" src="images/java.png"></a></li>
+			<li><a href="page1.html">Présentation</a></li>
+			<li><a href="page2.html">POO</a></li>
+			<li><a href="page3.html">Programmes</a></li>
+			<li><a href="page4.html">Base</a></li>
+			<li><a href="page5.html">Classes</a></li>
+			<li><a href="page6.html">Exceptions</a></li>
+			<li><a href="quiz.html">Quiz</a></li>
+		</ul>
+	</nav>
+	<nav id="sommaire">
+		<h2>Sommaire</h2>
+		<ul>
+			<li><a href="#introduction">Introduction</a></li>
+			<li><a href="#philosophie">Philosophie</a></li>
+			<li><a href="#internet">Java et Internet</a></li>
+			<li><a href="#marché">Le marché</a></li><br>
+		</ul>
+	</nav>
+	<section>
+		<header>Présentation du langage</header>
+		<ol>
+			<article id="introduction">
+				<header><li>Introduction</li></header>
+				<p>Le langage java a fait une entrée spectaculaire dans le monde du développement logiciel en 1995. Il combinait des options déjà popularisées par certains de ces concurrents (l'orientation objet) , et des caractéristiques particulièrement adaptées aux autres tendances dominantes du moment (Internet).</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</article>
+			<section id="philosophie">
+				<header><li>Philosophie</li></header>
+				<ol type="I">
+					<article>
+						<header><li>Un langage orienté objet</li></header>
+						<p>L'orientation objet s'est progressivement imposée comme technologie de développement, laissant espérer dans la conception des applications:
+						<ul>
+							<li>plus de réutilisation (du code, mais aussi de l'architecture)</li>
+							<li>une plus grande réactivité au changement</li>
+							<li>un moindre coût de maintenance</li>
+						</ul>
+						</p>
+						<p>Les langages orientés objets les mieux connus étaient C++ et SmallTalk. java occupe une position intermédiaire, plus proche de C++ en ce qui concerne le style de programmation. Nous verrons les principes de la programmation objet un peu plus loin, mais la notion essentielle est celle de <q>classe</q>, qui définit le comportement des variables du langage, appelés objets, et un programme java est un ensemble de définition de classes.</p>
+					</article>
+					<article>
+						<header><li>Un langage interprété</li></header>
+						<p>java est un langage compilé, la compilation produisant un pseudocode destiné à être interprété par une machine virtuelle, habituellement désignée sous le nom de JVM. Les spécifications précises tant du peudocode que du modèle d'exécution de la JVM font partie intégrante des spécifications du langage.</p>
+					</article>
+					<article>
+						<header><li> Un langage multi-plateformes</li></header>
+						<p>Les spécifications ci-dessus étant indépendantes de tout environnement physique, le premier bénéfice est la portabilité: en principe, une application écrite et compilée dans un environnement peut être exécutée dans n'importe quel autre. Bien sûr quelques précautions sont à prendre:
+						<ul>
+							<li>Un constructeur peut <q>respecter</q> les spécifications de la machine virtuelle tout en introduisant des extensions. Si une application tire partie de ces extensions, elle ne pourra fonctionner que dans les environnement les implémentant.</li>
+							<li>Un programme <q>réaliste</q> doit procéder avec le monde extérieur (le système fichier, l'interface utilisateur, les bases de données). Les concepteurs du langage ont fait de leur mieux pour rendre portable cet interfaçage, mais il n'est pas toujours possible de <q>cacher</q> le problème au développeur qui a besoin des fonctionnalités spécifiques d'un environnement.</li>
+							<li>Un seul langage n'étant pas toujours suffisant pour toutes les applications, certains programmes peuvent devoir utiliser <q>l'ouverture</q> de java pour appeler des fonctions extérieures ( native). Ceci bien sûr rend le développeur responsable de la portabilité correspondante. </li>
+						</ul>
+						</p>
+						<p>Malgré ces réserves, la portabilité est nettement supérieure à celle du C, or celleci, bien que plus imparfaite, était déjà assez bonne pour être un des facteurs de son succès. La portabilité de java est donc très satisfaisante.</p>
+					</article>
+					<article>
+						<header><li>Un environnement d'exécution complet</li></header>
+						<p>La machine virtuelle est prolongée par une bibliothèque de classes très complète qui non seulement accélère le développement des applications mais joue un rôle important dans leur portabilité. Ces classes sont regroupées en <q>packages</q>.</p>
+					</article>
+				</ol>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<article id="internet">
+				<header><li>Java et Internet</li></header>
+				<p>En plus des bénéfices décrits dans les paragraphes précédents, la structure du pseudocode est telle qu'il est possible pour la machine virtuelle de requérir des éléments compilés (les .class), en fonction des besoins, auprès de n'importe quelle source. Ceci est évidemment très adapté au Web, et a donné naissance à la notion d'applet, mini-applications pouvant fonctionner dans un browser sans que l'utilisateur ait eu à se préocupper de leur installation, et qui ont été l'un des principaux facteurs de l'explosion médiatique de java, même si l'intérêt du langage est très loin de s'y limiter.</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</article>
+			<article id="marché">
+				<header><li>Le marché</li></header>
+				<p>La popularité de java a atteint des sommets littéralement inouïs pour un langage de programmation: le grand public peut voir son nom dans tous les media! De façon plus concrète pour son succès industriel, beaucoup d'entreprises s'y sont intéressées:
+				<ul>
+					<li>Du point de vue du style de développement, il remplit un créneau non encore occupé dans la gamme des langages orientés objet (il reste proche de C++, dont le succés, mesuré en nombre de developpeurs, est supérieur à celui de concurrents comme SmallTalk), et nous verrons qu'il protége le développeur des difficultés de plus bas niveau rencontrées dans C++.</li>
+					<li>Ses possibilités d'adaptation à des environnements répartis, basés sur des composants, sont immédiates.</li>
+					<li>La notion de langage interprété suscite toujours des inquiétudes en ce qui concerne les performances. S'il est vrai qu'une exécution interprétée ne peut pas rivaliser avec l'exécution de code machine, les machines virtuelles sont libres, une fois le pseudocode chargé et vérifié, de le traduire en language machine pour l'exécution ultérieure. Ce mécanisme, connu sous le nom de <q>compilation Just In Time</q> a beaucoup fait pour dédramatiser le problème.</li>
+				</ul>
+				</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</article>
+		</ol>
+	</section>
+	<footer>
+		Copyright &copy 
+		<script type="text/javascript">
+			var d = new Date()
+			document.write(d.getFullYear())
+		</script>
+		by b14d35 All Rights Reserved.
+	</footer>
+	<script src="js/hide.js"></script>
+</body>
+</html>

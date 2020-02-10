@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Les programmes java</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="images/logo.gif">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<img width="100%" height="190px" src="images/learn.jpg">
+	<nav id="top_barre">
+		<button id="cacher" onclick="cacher()">⬱</button>
+		<ul>
+			<li><a href="index.html"><img width="40px" height="20px" src="images/java.png"></a></li>
+			<li><a href="page1.html">Présentation</a></li>
+			<li><a href="page2.html">POO</a></li>
+			<li><a href="page3.html">Programmes</a></li>
+			<li><a href="page4.html">Base</a></li>
+			<li><a href="page5.html">Classes</a></li>
+			<li><a href="page6.html">Exceptions</a></li>
+			<li><a href="quiz.html">Quiz</a></li>
+		</ul>
+	</nav>
+	<nav id="sommaire">
+		<h2>Sommaire</h2>
+		<ul>
+			<li><a href="#environnements">Les environnements de développement</a></li>
+			<li><a href="#architecture">L'architecture des programmes java</a></li>
+			<li><a href="#packages">Les packages de base</a></li><br>
+		</ul>
+	</nav>
+	<section>
+		<header>Les programmes java</header>
+		<ol>
+			<section id="environnements">
+				<header><li>Les environnements de développement</li></header>
+				<ol type="I">
+					<article>
+						<header><li>Le jdk</li></header>
+						<p>Le produit de base est le <q> Java Development Toolkit </q> de Sun. Il contient une implémentation de référence de la machine virtuelle, les librairies fondamentales nécessaires à son fonctionnement, un compilateur, et quelques outils supplémentaires. Il n'y a pas d'outil de développement visuel, bien que le <q> Bean Development Toolkit </q> contienne, lui, un tel outil, en la personne de la beanbox. Il n'y a malheureusement pas non plus, pour l'instant, de debugger digne de ce nom</p>
+					</article>
+					<article>
+						<header><li>Les environnements intégrés</li></header>
+						<p>Beaucoup de constructeurs proposent des environnements intégrés avec debugger, développement visuel, etc... Les plus connus sont:
+						<ul>
+							<li>Visual J++ de Microsoft</li>
+							<li>JBuilder d'Imprise (ex Borland)</li>
+							<li>VisualAge for Java d'IBM</li>
+							<li>Visual Cafe de Symantec</li>
+							<li>Kawa de Tek-Tools</li>
+						</ul>
+						</p>
+					</article>
+				</ol>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="architecture">
+				<header><li>L'architecture des programmes java</li></header>
+				<ol type="I">
+					<article>
+						<header><li>Structure logique, classes et packages</li></header>
+						<p>Si java comporte des types primitifs, il reste un langage objet <q>plutôt</q> pur, car le développeur ne peut définir que des classes. Le composant de base est donc la classe. Les classes peuvent, nous l'avons dit être regroupées en packages. les packages jouent deux rôles:
+						<ol>
+							<li>Ils représentent un espace de nommage, analogue au namespace de C++. Ceci évite entre autres les collisions de noms entre fournisseurs de composants.</li>
+							<li>Ils fournissent un niveau particulier de protection: il y a en java, comme en C++, 3 niveaux explicites de protection: 
+							<ul>
+								<li>private: uniquement pour un membre, ou une classe intérieure, seule la classe englobante peut y faire référence</li>
+								<li>protected: similaire, mais l'accès est autorisée également aux classes dérivées de la classe englobante</li>
+								<li>public: membres ou classes, accès autorisé pour tous</li>
+							</ul>
+							</li>
+						</ol>
+						Mais contrairement à C++, en l'absence de qualificateur explicite, le défaut n'est pas un de ces 3 niveaux, mais un 4ème, le niveau <q>package</q>, c-à-d accès autorisé à toutes les classes du même package.
+						</p>
+						<p>Une classe est spécifiée comme appartenant à un package en préfixant son code par la syntaxe: <code>package test;</code> ou <code>package com.omg.Corba;</code></p>
+						<p>Comme on le voit dans ce dernier exemple, les packages peuvent être imbriqués. Une classe sans spécification de <q>package</q> est considérée appartenir à un package global au nom <q>vide</q>. Les packages (non vides) font partie intégrante du nom de la classe, ainsi dans:<br>
+							<code>
+								package test;
+								<br>
+								public class Benchmark {...}
+							</code>
+						</p>
+						<p>le nom complet de la classe est test.Benchmark. Une référence depuis le code d'une classe à une classe appartenant à un autre package doit normalement spécifier ce nom complet. On peut s'en dispenser avec la directive d' import: ainsi, dans:<br>
+						<code>
+							Package test;<br>
+							import framework.*;<br>
+							public class Benchmark {<br>
+							...<br>
+							Application app=new Application();<br>
+							...<br>
+							}<br>
+						</code>
+						</p>
+						<p>Application peut faire référence à framework.Application (il est déconseillé que le package test contienne aussi une classe appelée Application!). On aurait pu obtenir le même résultat, de façon plus économique, et plus sûre, avec:
+						<code>
+							Package test;<br>
+							import framework.Application;<br>
+							public class Benchmark {<br>
+							...<br>
+							Application app=new Application();<br>
+							...<br>
+							}<br>
+						</code>
+						</p>
+					</article>
+					<article>
+						<header><li>Structure physique, les fichiers</li></header>
+						<p>L'unité de pseudo-code sera donc le code compilé définissant totalement une classe. Le nom du fichier est le nom exact de la classe suivi du suffixe <q>.class</q>. L'architecture des sources est presque aussi simple: un source java doit contenir au plus la définition d'une classe publique, et le nom du fichier doit alors être le nom exact de cette classe suivi du suffixe <q> .java</q>. Une classe peut avoir besoin de classes <q>auxiliaires</q> privées, celles-ci peuvent être définies dans le même fichier source, même si elles donneront lieu à une unité de code compilé indépendante. D'autre part, depuis jdk1.1, on peut définir des classes <q>intérieures</q> à une autre classe. Pour le code compilé d'une classe appartenant à un package, les segments du nom du package sont traduits non pas directement dans le nom de fichier mais par des sous-répertoires successifs. Ainsi le code compilé de la classe test.Benchmark devra se trouver dans un fichier dont la spécification sera de la forme:<br>
+						<code>xxx \test\Benchmark.class</code>
+						<br>
+						Bien qu'il soit souhaitable de respecter une cohérence identique pour les sources, aucune contrainte n'est imposée sur celles-ci, ni par la spécification, ni par les outils.
+						</p>
+					</article>
+					<article>
+						<header><li> La compilation</li></header>
+						<p>Dans le cas du jdk, la compilation est exécutée en lançant depuis la ligne de commande l'utilitaire javac. La syntaxe est:<br>
+						<code>javac [options] fichier.java</code><br>
+						Les options les plus utilisées sont:<br>
+						<ul>
+							<li>-classpath suivi d'une liste de répertoires où rechercher les classes référencées par le source compilé, séparés par des <q> ;</q> sous Windows ou par des <q>:</q> sous Unix.</li>
+							<li>-d suivi de la spécification du répertoire où écrire le code compilé</li>
+						</ul><br>
+						Si la classe appartient à un package, l'argument de -d sera la racine relative du répertoire effectif, c-a-d que:<br>
+						<code>javac -d C:\dev\classes benchmark.java</code><br>
+						produira (en supposant que nous soyons dans le répertoire où se trouve le source de la classe test.Benchmark) le fichier:<br>
+						<code>C:\dev\classes\test\Benchmark.class</code><br>
+						classpath est interprété de la même façon, et si Benchmark référence la classe framework.Application dont le compilé se trouve dans:<br>
+						<code>C:\dev\classes\framework\Application.class</code><br>
+						l'argument de -classpath devra contenir, entre autres, C:\dev\classes
+						</p>
+					</article>
+					<article>
+						<header><li>L'exécution et les machines virtuelles</li></header>
+						<p>Le code compilé est exécuté par la machine virtuelle. Quand une nouvelle classe est requise (par exemple, parce qu'elle est référencée par une classe déjà chargée. Nous verrons plus loin comment la première classe est chargée), la machine virtuelle charge le code en mémoire puis exécute des opérations regroupées en 3 phases:
+						<ol>
+							<li>Vérification:
+								<ul>
+									<li>Contrôler que le bloc chargé commence bien par le mot magique qui identifie les classes java compilées</li>
+									<li>Contrôler que le code compilé ne comporte que des <q>bytecode</q> légaux</li>
+									<li>Contrôler que tout branchement débouche bien sur un début d'instruction</li>
+									<li>bien d'autres choses...</li>
+								</ul>
+							</li>
+							<li>Préparation: principalement création des variables de classes et leur affectation avec les valeurs par défaut ou des valeurs initiales spécifiées tant qu'elles sont déterminées à la compilation</li>
+							<li>Résolution: localiser les classes référencées symboliquement et les charger. Cette phase peut-être retardée jusqu'au moment où une classe donnée est absolument nécessaire</li>
+						</ol>
+						</p>
+						<p>Quand la machine virtuelle est lancée explicitement, par exemple depuis la ligne de commande, elle accepte une option -classpath identique à celle du compilateur</p>
+					</article>
+					<article>
+						<header><li>Applications, applets, servlets</li></header>
+						<p>Une application autonome doit posséder un point d'entrée standard, sous la forme d'une classe publique, possédant une méthode publique de classe dont le nom est main. Plus précisément l'en-tête de cette méthode (sa signature) doit être:<br>
+						<code>public static void main(String[] arg)</code><br>
+						static signifie que c'est une méthode de classe et pas une méthode d'instance, void signale qu'elle ne renvoie aucun résultat, et (String[] arg) qu'elle reçoit comme un argument un tableau de chaînes de caractères. Si une application est lancée par:<br>
+						<code>java FileCopy input output</code><br>
+						FileCopy.main recevra comme argument un tableau de 2 chaînes de caractères: {<q>input</q>,<q>output</q>}.
+						</p>
+						<p>Une telle application est exécutée en lançant l'exécutable de la machine virtuelle avec le nom de la classe en argument. Certains environnements d'exécution fournissent une application cadre (framework), qui gère des composants, qui n'ont donc pas besoin d'un main() propre, mais dont la responsibilité est d'exporter d'autres méthodes. Les deux cas les plus fréquemment rencontrés sont:
+						<ul>
+							<li>L'environnement d'exécution d' applets au sein d'un navigateur web. Les applets sont des classes java qui enrichissent le contenu de pages web, et qui doivent posséder certaines méthodes d'initialisation, de lancement, de suspension et de terminaison. Ce sont normalement des composants graphiques qui doivent donc réagir à des évènements, et se représenter dans la page. L' exécution d'un applet est déclenchée par le chargement dans le navigateur d'une page html contenant un référence à cet applet.</li>
+							<li>l'environnement d'exécution de servlets au sein d'un serveur web. Les servlets sont des classes java qui permettent de générer, en réponse à des requêtes en provenance d'un navigateur lointain, des pages web dynamiques, et qui doivent posséder des méthodes de traitement de requêtes HTTP. L'exécution d'un servlet est déclenchée par la réception par le serveur d'une requête dont l'url référence ce servlet.</li>
+						</ul>
+						</p>
+					</article>
+				</ol>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="packages">
+				<header><li>Les packages de base</li></header>
+				<p>Un certain nombre de packages font partie de la spécification du langage. La liste suivante n'est pas exhaustive:
+				<ul>
+					<li>Les packages noyau: bien qu'ils soient séparés pour des raisons logiques, chacun de ces packages fait référence aux autres, et ne pourrait fonctionner sans eux, même si la spécification java l'autorisait:
+						<ul>
+							<li>java.lang C'est le seul package qui n'ait jamais besoin d'être importé. Il contient entre autres la class Object, les classes String et StringBuffer déjà rencontrées, la classe Exception. Il contient aussi la classe utilitaire System, celle-ci est une classe <q>utilité</q>, ne contenant que des membres de classe, et en particulier s'appuie sur le package java.io, par exemple pour fournir l'équivalent de stdout et stderr.</li>
+							<li>java.util Un package d'intérêt très général, mais contenant des classes moins <q>système</q>: la très utilisée classe Vector se trouve ici. Ce ne sont pas des classes <q>utilités</q>, util signifiant ici <q>utilitaire</q>, ce qui posséde (malheureusement) un sens différent sous une apparence proche! </li>
+							<li>java.io Le package de base d'accès aux entrèes-sorties (fichiers, terminaux).</li>
+						</ul>
+					</li>
+					<li>java.awt Le package initial pour la programmation des <q>GUI</q>. Un des points les plus remaniés de java depuis sa sortie (à juste titre!), il est maintenant conseillé d'utiliser javax.swing.</li>
+					<li>java.applet Le package de définition des applets.</li>
+					<li>java.net Le package pour la programmation de réseau.</li>
+					<li>java.beans le package des composants java.</li>
+					<li>java.security Le package de la sécurité: signature, encryption, politique de sécurité. En fait bien que ce package puisse être ignoré dans un premier temps par le développeur applicatif, c'est absolument un package <q>noyau</q>, et les 3 premiers packages y font référence.</li>
+				</ul>
+				</p>
+				<p>En principe, les packages dont la racine est <q> java </q> sont ceux qui font partie des spécifications du langage, et ceux dont la racne est <q> javax </q> sont des extensions. Néanmoins javax.swing fait partie intégrante de jdk1.2, et son inclusion dans javax est basée sur ce que l'on appelle en général pudiquement des <q>raisons socio-historiques</q>.</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+		</ol>
+	</section>
+	<footer>
+		Copyright &copy 
+		<script type="text/javascript">
+			var d = new Date()
+			document.write(d.getFullYear())
+		</script>
+		by b14d35 All Rights Reserved.
+	</footer>
+	<script src="js/hide.js"></script>
+</body>
+</html>

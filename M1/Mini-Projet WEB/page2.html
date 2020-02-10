@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> L'orientation objet </title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="images/logo.gif">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<img width="100%" height="190px" src="images/learn.jpg">
+	<nav id="top_barre">
+		<button id="cacher" onclick="cacher()">⬱</button>
+		<ul>
+			<li><a href="index.html"><img width="40px" height="20px" src="images/java.png"></a></li>
+			<li><a href="page1.html">Présentation</a></li>
+			<li><a href="page2.html">POO</a></li>
+			<li><a href="page3.html">Programmes</a></li>
+			<li><a href="page4.html">Base</a></li>
+			<li><a href="page5.html">Classes</a></li>
+			<li><a href="page6.html">Exceptions</a></li>
+			<li><a href="quiz.html">Quiz</a></li>
+		</ul>
+	</nav>
+	<nav id="sommaire">
+		<h2>Sommaire</h2>
+		<ul>
+			<li><a href="#principes">Les principes généraux</a></li>
+			<li><a href="#elements">Elements de langage, classes et objets</a></li>
+			<li><a href="#position">La position de java</a></li>
+			<li><a href="#garbage">Le Garbage Collector</a></li><br>
+		</ul>
+	</nav>
+	<section>
+		<header>L'orientation objet</header>
+		<ol>
+			<section id="principes">
+				<header><li> Les principes généraux</li></header>
+				<p>Les 4 principaux mots magiques de la programmation objet sont: l'encapsulation l'abstraction, l'héritage, et le polymorphisme</p>
+				<p>L'encapsulation: au lieu de s'intéresser principalement aux procédures, le développement objet cherche à regrouper un ensemble de données et de fonctions qui peuvent leur être appliquées. L'ensemble de ces données (attributs) et de ces fonctions (méthodes) constitue un objet, et, si le langage est typé, est décrit dans un type qu'on appelle une classe.</p>
+				<p>La combinaison de l'encapsulation et de l'abstraction conduit à ne présenter aux utilisateurs d'une telle classe que les méthodes d'intérêt public, les protégeant des détails de la réalisation, et de leur évolution.</p>
+				<p>L'héritage désigne la possibilité de construire de nouvelles classes en s'appuyant sur des classes existantes: la nouvelle classe (dérivée), hérite des attributs et des méthodes de l'ancienne (base).</p>
+				<p>Le polymorphisme désigne la possibilité d'écrire une seule fois du code qui pourra s'appliquer à des objets différents, en exécutant des méthodes différentes, mais avec la même signification. Il existe plusieurs formes de polymorphisme, certaines sans rapport avec l'orientation objet, mais la plus importante est réalisée à travers l'héritage, en autorisant la classe dérivée à redéfinir certaines méthodes de la classe de base. La différence entre l'héritage seul et l'héritage combiné avec le polymorphisme est à peu près la même qu'entre une mobylette et une moto de course, ne pas oublier qu'une moto de course peut être très dangereuse si elle est mal utilisée! D'une part l'héritage peut être utilisé <q>à tort</q>, quand par exemple un objet devrait simplement posséder une référence d'un autre type dont il a besoin, d'autre part tant qu'un langage ne comporte pas des <q>assertions sémantiques</q> (elles ont envisagées pour java), la phrase ci-dessus avec la même signification reste incontrôlable.</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="elements">
+				<header><li>Elements de langage, classes et objets.</li></header>
+				<p>La notion de base est celle de la classe, qui est en quelque sorte un gabarit de création d'objets. Ce gabarit est utilisé pour créer des instances d'objets. Un objet ayant en général besoin d'être initialisé, il est possible de définir des pseudo-méthodes d'initialisation, appelées usuellement constructeurs, qui sont automatiquement exécutées au moment de l'instantiation. Des méthodes seront ensuite invoquées sur les objets instantiés.</p>
+				<p>Outre les attributs et propriétés (nous parlerons de membres) décrits cidessus, qui sont associés à des instances spécifiques d'objet , une classe peut aussi posséder des membres qui ne sont pas liés à un objet particulier, appelés attributs ou méthodes de classe. Dans certains cas il est possible et intéressant de définir des classes qui ne sont même pas destinées à être intanciées, et contiennent un ensemble de <q>méthodes</q> qui ressemblent à des fonctions traditionnelles déguisées, mais néanmoins régroupées logiquement. Ces classes sont souvent désignées sous le nom de classes utilités.</p>
+				<p>Les langages objet possédent généralement une notion de protection, c-ad que seuls certains membres d'une classe, dits publics, sont destinées à être exposées au code extérieur à la classe, les autres, dits privés, étant réservé à son propre usage, à des fins d'implémentation. On trouve parfois une graduation plus fine que les seuls niveaux publics et privés (c'est le cas de java et de C++), et la notion de protection s'applique souvent aussi aux classes elles-mêmes. Il est en général déconseillé d'exposer directement des attributs comme publics, souvent le monde extérieur n'a pas besoin d'être conscient de leur existence, et même s'il doit l'être, il est préférable de définir une ou deux méthodes, appelées <q>accesseurs</q>, pour lire et/ou modifier leur valeur.</p>
+				<p>Si le langage est hybride, une notion plus traditionelle de fonction peut coexister avec les éléments purement objets.</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="position">
+				<header><li>La position de java</li></header>
+				<p>Comment se positionne java dans la gamme des langages orientés objet? Si l'on considére les deux langages les mieux connus:
+				<ul>
+					<li>C++ est un langage hybride (il y a de nombreux types primitifs, on peut écrire du code C, c'est à dire une sorte d'assembleur structuré!), et fortement typé.</li>
+					<li>SmallTalk est une langage pur, non typé.</li>
+				</ul>
+				</p>
+				<p>java occupe une position intermédiaire:
+				<ul>
+					<li>Il est hybride, mais beaucoup moins que C++: il y a toujours des types primitifs (numériques+char+void), mais le développeur ne peut rien définir qui soit en dehors d'une classe, toute classe définie par l'utilisateur dérive d'une classe prédéfinie (Objet).</li>
+					<li>Il est aussi fortement typé que C++</li>
+				</ul>
+				</p>
+				<p>Par ailleurs, java s'est appuyé sur une syntaxe très proche de celle du C++, après avoir éliminé les complexités les plus redoutables, au prix bien sûr de se priver de certaines possibilités.</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="garbage">
+				<header><li>Le Garbage Collector</li></header>
+				<p>Instantier un objet signifie le créer, ce qui pose le problème du cycle de vie et de sa destruction. Les langages objets épargnent en général la gestion de cette destruction au développeur. java est dans ce cas, contraitement à C++ qui, pour satisfaire les besoins en performance d'une partie de son marché, laisse au développeur le soin de spécifier allocation et déallocation. Le <q>Garbage Collection</q> a longtemps eu très mauvaise réputation, à cause de certaines implémentations de Lisp où l'exécution de cette phase provoquait des pauses très perceptibles dans l'exécution des applications. La banalisation du multithread, en permettant d'exécuter ce nettoyage en parallèle, a encore une fois dédramatisé le problème. Il reste que combiner Garbage Collection et Temps Réel est, sinon impossible, tout au moins délicat.</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+		</ol>
+	</section>
+	<footer>
+		Copyright &copy 
+		<script type="text/javascript">
+			var d = new Date()
+			document.write(d.getFullYear())
+		</script>
+		by b14d35 All Rights Reserved.
+	</footer>
+	<script src="js/hide.js"></script>
+</body>
+</html>

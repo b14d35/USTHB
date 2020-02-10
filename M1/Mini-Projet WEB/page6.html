@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>La gestion des exceptions</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="images/logo.gif">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<img width="100%" height="190px" src="images/learn.jpg">
+	<nav id="top_barre">
+		<button id="cacher" onclick="cacher()">⬱</button>
+		<ul>
+			<li><a href="index.html"><img width="40px" height="20px" src="images/java.png"></a></li>
+			<li><a href="page1.html">Présentation</a></li>
+			<li><a href="page2.html">POO</a></li>
+			<li><a href="page3.html">Programmes</a></li>
+			<li><a href="page4.html">Base</a></li>
+			<li><a href="page5.html">Classes</a></li>
+			<li><a href="page6.html">Exceptions</a></li>
+			<li><a href="quiz.html">Quiz</a></li>
+		</ul>
+	</nav>
+	<nav id="sommaire">
+		<h2>Sommaire</h2>
+		<ul>
+			<li><a href="#mecanismes">Mécanismes généraux</a></li>
+			<li><a href="#compilation">Particularités à la compilation</a></li><br>
+		</ul>
+	</nav>
+	<section>
+		<header>La gestion des exceptions</header>
+		<ol>
+			<section id="mecanismes">
+				<header><li>Mécanismes généraux</li></header>
+				<p>De nombreuses erreurs peuvent survenir pendant l'exécution d'un programme, qui rendent impossible de pousrsuivre l'exécution comme si rien n'était arrivé. java définit pour cela la notion d'exception. Une exception provoque la terminaison abrupte du bloc de code en cours d'exécution, et le transfert du contrôle de l'exécution en un point spécifié par le programmeur comme traitant cette exception. Les exceptions sont en fait des classe java, déclenchées soit implicitement par une erreur du programme, soit explicitement par l'emploi de la syntaxe:<br>
+				<code>throw new ExceptionClass (...);</code><br>
+				dans du code ayant déterminé qu'il ne peut pas s'exécuter correctement dans le cas présent. Nous avons vu que le programmeur peut spécifier le traitement d'une exception par la syntaxe:<br>
+				<code>try tryBlock<br>catch(ExceptionClass id ) handlerBlock<br>...</code><br>
+				Le contrôle de l'exécution sera tranféré au début du bloc handlerBlock si une exception dérivée de la classe ExceptionClass est levée pendant l'exécution de tryBlock .</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="compilation">
+				<header><li>Particularités à la compilation</li></header>
+				<p>Les exceptions ne peuvent pas être n'importe quelles classes, elles doivent être dérivées de la classe java.lang.Throwable . La hiérarchie dérivée de cette classe est divisée en 3 parties:
+				<ol type="i">
+					<li>La classe java.lang.Error et ses dérivées</li>
+					<li>La classe java.lang.RunTimeException et ses dérivées</li>
+					<li>Les autres classes dérivées de java.lang.Exception</li>
+				</ol>
+				</p>
+				<p>Une méthode peut déclarer les méthodes que son exécution peut lever sans qu'elle les gère elle-même par la clause:<br>
+				<code>throws ExceptionClass1, ExceptionClass2</code>
+				</p>
+				<p>Une méthode doit déclarer de telles exceptions si elles sont du type 3. Cette obligation n'existe pas pour les autres types:
+				<ul>
+					<li>Les dérivées de Error sont des erreurs dificilement récupérables et qui peuvent se produire n'importe où</li>
+					<li>vées par de nombreuses constructions du langage, mais dont le développeur peut se garantir par des techniques que le compilateur n'est pas en mesure de reconnaître: par ex. ArithmeticException (division par 0), NullPointerException, ClassCastException (toutes ces exceptions sont dans le package java.lang).</li>
+				</ul>
+				Exiger que tout programme déclare ou traite ces erreurs nuirait en définitive à la lisibilité et à la maintenabilité du code.</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+		</ol>
+	</section>
+	<footer>
+		Copyright &copy 
+		<script type="text/javascript">
+			var d = new Date()
+			document.write(d.getFullYear())
+		</script>
+		by b14d35 All Rights Reserved.
+	</footer>
+	<script src="js/hide.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="images/logo.gif">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<img width="100%" height="190px" src="images/learn.jpg">
+	<nav id="top_barre">
+		<button id="cacher" onclick="cacher()">⬱</button>
+		<ul>
+			<li><a href="index.html"><img width="40px" height="20px" src="images/java.png"></a></li>
+			<li><a href="page1.html">Présentation</a></li>
+			<li><a href="page2.html">POO</a></li>
+			<li><a href="page3.html">Programmes</a></li>
+			<li><a href="page4.html">Base</a></li>
+			<li><a href="page5.html">Classes</a></li>
+			<li><a href="page6.html">Exceptions</a></li>
+			<li><a href="quiz.html">Quiz</a></li>
+		</ul>
+	</nav>
+	<fieldset id="quiz">
+		<legend> Quiz </legend>
+		<fieldset class="gauche" id="Q1">
+			<legend> Question 1 </legend>
+			<label>- Qu'est-ce qu'une "super classe" ?</label><br>
+			<label for="v1"><input type="radio" name="Q1" value="1">une classe mère<br></label>
+			<label for="v2"><input type="radio" name="Q1" value="2">une classe public<br></label>
+			<label for="v3"><input type="radio" name="Q1" value="3">une classe main<br></label>
+		</fieldset>
+		<fieldset class="droite" id="Q2">
+			<legend> Question 2 </legend>
+			<label>- Quel environnement de développement très utilisé permet notamment de compiler et déboguer en Java ?</label><br>
+			<label for="v1"><input type="radio" name="Q2" value="1">JRE<br></label>
+			<label for="v2"><input type="radio" name="Q2" value="2">Eclipse<br></label>
+			<label for="v3"><input type="radio" name="Q2" value="3">JSD<br></label>
+		</fieldset>
+		<fieldset class="gauche" id="Q3">
+			<legend> Question 3 </legend>
+			<label>- for( ; ; ){ } provoque ?</label><br>
+			<label for="v1"><input type="radio" name="Q3" value="1">une boucle infinie<br></label>
+			<label for="v2"><input type="radio" name="Q3" value="2">une erreur de syntaxe<br></label>
+			<label for="v3"><input type="radio" name="Q3" value="3">une boucle qui termine immédiatement<br></label>
+		</fieldset>
+		<fieldset class="droite" id="Q4">
+			<legend> Question 4 </legend>
+			<label>- Pour empêcher de redéfinir une méthode on la déclare ?</label><br>
+			<label for="v1"><input type="radio" name="Q4" value="1">private<br></label>
+			<label for="v2"><input type="radio" name="Q4" value="2">static<br></label>
+			<label for="v3"><input type="radio" name="Q4" value="3">final<br></label>
+		</fieldset>
+		<fieldset class="gauche" id="Q5">
+			<legend> Question 5 </legend>
+			<label>- (1==2)?"A":"B"; renvoie ?</label><br>
+			<label for="v1"><input type="radio" name="Q5" value="1">AB<br></label>
+			<label for="v2"><input type="radio" name="Q5" value="2">A<br></label>
+			<label for="v3"><input type="radio" name="Q5" value="3">B<br></label>
+		</fieldset>
+		<fieldset class="droite" id="Q6">
+			<legend> Question 6 </legend>
+			<label>- Qu'est ce qui caractérise le langage Java ?</label><br>
+			<label for="v1"><input type="radio" name="Q6" value="1">une écriture concise<br></label>
+			<label for="v2"><input type="radio" name="Q6" value="2">la portabilité<br></label>
+			<label for="v3"><input type="radio" name="Q6" value="3">la vitesse<br></label>
+		</fieldset>
+		<fieldset class="gauche" id="Q7">
+			<legend> Question 7 </legend>
+			<label>- La classe Exception dérive de la classe ?</label><br>
+			<label for="v1"><input type="radio" name="Q7" value="1">Throwable<br></label>
+			<label for="v2"><input type="radio" name="Q7" value="2">IOException<br></label>
+			<label for="v3"><input type="radio" name="Q7" value="3">Error<br></label>
+		</fieldset>
+		<fieldset class="droite" id="Q8">
+			<legend> Question 8 </legend>
+			<label>- Que renvoie (char)65 ?</label><br>
+			<label for="v1"><input type="radio" name="Q8" value="1">"char65"<br></label>
+			<label for="v2"><input type="radio" name="Q8" value="2">une erreur<br></label>
+			<label for="v3"><input type="radio" name="Q8" value="3">"A"<br></label>
+		</fieldset>
+		<fieldset class="gauche" id="Q9">
+			<legend> Question 9 </legend>
+			<label>- Lorsque la portée d'une classe n'est pas précisée dans un package, celle-ci est dite ?</label><br>
+			<label for="v1"><input type="radio" name="Q9" value="1">public<br></label>
+			<label for="v2"><input type="radio" name="Q9" value="2">private<br></label>
+			<label for="v3"><input type="radio" name="Q9" value="3">default<br></label>
+		</fieldset>
+		<fieldset class="droite" id="Q10">
+			<legend> Question 10 </legend>
+			<label>- On utilise SWITCH pour ?</label><br>
+			<label for="v1"><input type="radio" name="Q10" value="1">permuter des tableaux<br></label>
+			<label for="v2"><input type="radio" name="Q10" value="2">tester une suite de conditions<br></label>
+			<label for="v3"><input type="radio" name="Q10" value="3">permuter des chaines de caractères<br></label>
+		</fieldset>
+		<fieldset class="gauche" id="Q11">
+			<legend> Question 11 </legend>
+			<label>- Le terme "polymorphisme" s'emploie pour ?</label><br>
+			<label for="v1"><input type="radio" name="Q11" value="1">une classe fille<br></label>
+			<label for="v2"><input type="radio" name="Q11" value="2">une méthode<br></label>
+			<label for="v3"><input type="radio" name="Q11" value="3">une super classe<br></label>
+		</fieldset>
+		<fieldset class="droite" id="Q12">
+			<legend> Question 12 </legend>
+			<label>- Une variable de classe, commune à toutes les instances d'un classe doit être déclarée ?</label><br>
+			<label for="v1"><input type="radio" name="Q12" value="1">public<br></label>
+			<label for="v2"><input type="radio" name="Q12" value="2">static<br></label>
+			<label for="v3"><input type="radio" name="Q12" value="3">global<br></label>
+		</fieldset>
+		<fieldset class="gauche" id="Q13">
+			<legend> Question 13 </legend>
+			<label>- Que renvoie 10 % 5 ?</label><br>
+			<label for="v1"><input type="radio" name="Q13" value="1">0<br></label>
+			<label for="v2"><input type="radio" name="Q13" value="2">2<br></label>
+			<label for="v3"><input type="radio" name="Q13" value="3">0.5<br></label>
+		</fieldset>
+		<fieldset class="droite" id="Q14">
+			<legend> Question 14 </legend>
+			<label>- Par convention un nom de variable ?</label><br>
+			<label for="v1"><input type="radio" name="Q14" value="1">commence par un underscore ( _ )<br></label>
+			<label for="v2"><input type="radio" name="Q14" value="2">commence par une majuscule<br></label>
+			<label for="v3"><input type="radio" name="Q14" value="3">commence par une minuscule<br></label>
+		</fieldset>
+		<fieldset class="gauche" id="Q15">
+			<legend> Question 15 </legend>
+			<label>- Le package "javax.swing" est utilisé pour ?</label><br>
+			<label for="v1"><input type="radio" name="Q15" value="1">les fenêtres<br></label>
+			<label for="v2"><input type="radio" name="Q15" value="2">les applets<br></label>
+			<label for="v3"><input type="radio" name="Q15" value="3">le réseau<br></label>
+		</fieldset>
+		<fieldset class="droite" id="Q16">
+			<legend> Question 16 </legend>
+			<label>- En anglais "accesseur" se dit?</label><br>
+			<label for="v1"><input type="radio" name="Q16" value="1">Pointer<br></label>
+			<label for="v2"><input type="radio" name="Q16" value="2">Getter<br></label>
+			<label for="v3"><input type="radio" name="Q16" value="3">Seeker<br></label>
+		</fieldset>
+		<fieldset class="gauche" id="Q17">
+			<legend> Question 17 </legend>
+			<label>- Comment peut-on aussi appeler la Machine Virtuelle ?</label><br>
+			<label for="v1"><input type="radio" name="Q17" value="1">JRE<br></label>
+			<label for="v2"><input type="radio" name="Q17" value="2">JDK<br></label>
+			<label for="v3"><input type="radio" name="Q17" value="3">JVE<br></label>
+		</fieldset>
+		<fieldset class="droite" id="Q18">
+			<legend> Question 18 </legend>
+			<label>- Quel programme du JDK sert à compiler du Java ?</label><br>
+			<label for="v1"><input type="radio" name="Q18" value="1">javac.exe<br></label>
+			<label for="v2"><input type="radio" name="Q18" value="2">jre.exe<br></label>
+			<label for="v3"><input type="radio" name="Q18" value="3">jdk.exe<br></label>
+		</fieldset>
+		<fieldset class="gauche" id="Q19">
+			<legend> Question 19 </legend>
+			<label>- Quel est l'extension d'un fichier source ?</label><br>
+			<label for="v1"><input type="radio" name="Q19" value="1">.source<br></label>
+			<label for="v2"><input type="radio" name="Q19" value="2">.java<br></label>
+			<label for="v3"><input type="radio" name="Q19" value="3">.j<br></label>
+		</fieldset>
+		<fieldset class="droite" id="Q20">
+			<legend> Question 20 </legend>
+			<label>- Quel opérateur sert pour la concaténation des chaines de caractères ?</label><br>
+			<label for="v1"><input type="radio" name="Q20" value="1">AND<br></label>
+			<label for="v2"><input type="radio" name="Q20" value="2">&<br></label>
+			<label for="v3"><input type="radio" name="Q20" value="3">+<br></label>
+		</fieldset>
+		<button onclick="quiz()"> Valider </button>
+		<div id="result"></div>
+	</fieldset>
+	<footer>
+		Copyright &copy 
+		<script type="text/javascript">
+			var d = new Date()
+			document.write(d.getFullYear())
+		</script>
+		by b14d35 All Rights Reserved.
+	</footer>
+	<script src="js/hide.js"></script>
+	<script src="js/quiz.js"></script>
+</body>
+</html>

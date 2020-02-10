@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Les classes de java</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="images/logo.gif">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<img width="100%" height="190px" src="images/learn.jpg">
+	<nav id="top_barre">
+		<button id="cacher" onclick="cacher()">⬱</button>
+		<ul>
+			<li><a href="index.html"><img width="40px" height="20px" src="images/java.png"></a></li>
+			<li><a href="page1.html">Présentation</a></li>
+			<li><a href="page2.html">POO</a></li>
+			<li><a href="page3.html">Programmes</a></li>
+			<li><a href="page4.html">Base</a></li>
+			<li><a href="page5.html">Classes</a></li>
+			<li><a href="page6.html">Exceptions</a></li>
+			<li><a href="quiz.html">Quiz</a></li>
+		</ul>
+	</nav>
+	<nav id="sommaire">
+		<h2>Sommaire</h2>
+		<ul>
+			<li><a href="#definition">Définition de base</a></li>
+			<li><a href="#attributs">Attributs</a></li>
+			<li><a href="#methodes">Méthodes</a></li>
+			<li><a href="#constructeurs">Constructeurs</a></li>
+			<li><a href="#destruction">Destruction</a></li>
+			<li><a href="#heritage">Héritage</a></li>
+			<li><a href="#acces">Accès</a></li>
+			<li><a href="#abstraction">Abstraction</a></li><br>
+		</ul>
+	</nav>
+	<section>
+		<header>Les classes de java</header>
+		<ol>
+			<section id="definition">
+				<header><li>Définition de base</li></header>
+				<p>Au minimum, la définition d'une classe prend la forme:<br>
+				<code>class ClassName {<br>// déclaration des membres<br>}</code><br>
+				les membres étant des variables ou des méthodes, d'instance ou de classe, et des constructeurs. La déclaration d'un membre de classe est identifiée en étant précédée du qualificateur static (Depuis jdk1.1, un membre peut également être une <q>classe intérieure</q>). Nous savons déjà que la classe peut être optionellement déclarée public. La déclaration de chaque membre peut aussi être précédée d'un qualificateur de protection, public, protected, ou private.
+				</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="attributs">
+				<header><li>Attributs</li></header>
+				<p>La déclaration d'une variable membre est identique à la déclaration d'une variable locale. En dehors du qualificateur final, applicable également aux variables locales, du qualificateur static, applicable également à tous les membres à l'exclusion des constructeurs, et des qualificateurs de protection, applicables également à tous les membres, deux qualificateurs sont réservés aux attributs:
+					<ul>
+						<li>transient, lié à la sérialisation</li>
+						<li>volatile, lié à la concurrence</li>
+					</ul>
+				</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="methodes">
+				<header><li>Méthodes</li></header>
+				<p>Les méthodes sont, en java, la seule forme des fonctions. On a déjà vu qu'on ne peut rien définir en dehors d'une classe, mais on ne peut pas non plus définir de fonctions locales au corps d'une méthode. Si l'on a besoin de fonctions n'étant pas associées à un objet possédant un état (c'est-à-dire un ensemble d'attributs) propre, ces fonctions seront définies comme méthodes de classe d'une classe correspondant à leur fonctionnalité.</p>
+				<p>Plusieurs méthodes d'une même classe peuvent avoir le même nom si le nombre ou les types de leurs arguments sont différents. La seule différence des types de retour n'est pas suffisante! Dans le code d'une méthode d'instance, la pseudo-variable this est automatiquement définie par le compilateur, et dénote l'objet sur lequel la méthode a été invoquée.</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="constructeurs">
+				<header><li>Constructeurs</li></header>
+				<p>Un constructeur est une pseudo-méthode n'ayant pas de spécification de type de retour, et dont le nom est celui de la classe. Bien que le constructeur soit plus proche d'une méthode de classe que d'une méthode d'instance, la pseudovariable this est définie et dénote l'objet qui est en cours d'instantiation. Une classe peut posséder plusieurs constructeurs, toujours différenciés par leurs listes d'arguments. Si aucun constructeur n'est déclaré, un constructeur implicite, public, sans arguments, et avec un corps vide, est généré.Un constructeur peut en appeler un autre par une utilisation patriculière de this:<br>
+				<code>public class Container {<br>public Container(int size) {...}<br>public Container() {<br>this(10);<br>}<br>}</code><br>
+				this(10) est ici interprété comme appelant le constructeur approprié à la liste d'arguments qui lui est passé. L'exemple ci-dessus permet de réaliser une notion de valeur par défaut de l'argument size. Attention:
+				<ul>
+					<li>Un appel à this avec des arguments de même type que le constructeur courant provoquera une récursion infinie. heureusement les compilateurs le détectent.</li>
+					<li> Un constructeur qui en appelle un autre peut exécuter du code supplémentaire, mais l'appel à this doit être la première instruction.</li>
+				</ul>
+				</p>
+				<p>L'appel du constructeur est déclenché par la syntaxe:<br>
+				<code>var=new ClassName(args);</code><br>
+				la liste d'arguments pouvant bien sûr être vide. Cette syntaxe est la seule pouvant déclencher la création d'un objet. Dans le cas des tableaux, que nou savons être des classes déguisées, le constructeur est accessible par une syntaxe particulière:<br>
+				<code>String[] names=new String[n];</code><br>
+				qui alloue un tableau de n chaînes, dont tous les éléments (traités comme des attributs de la classe String[]) sont initialisés à null. Dans le cas des tableaux multi-dimensionnels, cette syntaxe peut s'étendre sous deux formes:<br>
+				<code>String[][] names=new String[p][q];</code><br>
+				qui alloue un tableau de p tableaux de q chaînes, chacun des p*q éléments initialisés à null, ou<br>
+				<code>String[][] names=new String[p][];</code><br>
+				qui alloue un tableau de p tableaux de chaînes, chacun de ces p élements de type String[] étant lui-même initialisé à null.
+				</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="destruction">
+				<header><li>Destruction</li></header>
+				<p>Comme on l'a dit, la destruction d'un objet n'est jamais demandée explicitement par le programme. Un objet <q>vit</q> tant qu'il est référencé, les références pouvant provenir directement:
+				<ol type="i">
+					<li>d'une variable locale</li>
+					<li>d'une variable membre de classe d'une classe chargée</li>
+					<li>d'une variable membre d'instance d'un objet <q>vivant</q></li>
+					<li>d'un élément d'un tableau, ce qui est une variante particulière du cas précédent, et très répandue: tous les <q>containers</q> existant couramment utilisent en définitive un tableau.</li>
+				</ol>
+				</p>
+				<p>Dès qu'un objet n'est plus référencé, la machine virtuelle est libre de libérer son espace mémoire, grâce au <q>Garbage Collector</q> mentionné plus haut. Néanmoins, l'initialisation de l'objet peut avoir alloué des ressources précieuses (comme des connexions réseau) dont la machine virtuelle n'est pas consciente. Une méthode particuliére:<br>
+				<code>void finalize() {...}</code><br>
+				est définissable comme l'endroit adéquat pour libérer les ressources autres que la mémoire allouées par l'objet. Son rôle est similaire à celui du destructeur en C++. Néanmoins, si la machine virtuelle est tenue de détruire les objets non référencés avant de se plaindre qu'il n'y a plus de mémoire pour en créer de nouveaux, et, si possible avant que l'utilisateur ne se plaigne que l'application rame (!), elle est, dans ces limites, totalement libre du moment de ces destructions, et de leur ordonnancement. Ceci, joint au fait que le développeur ne peut pas choisir entre allocation dynamique des objets et allocation automatique sur la pile, fait que le rôle du finaliseur est beaucoup moins crucial et prépondérant qu'en C++.
+				</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="heritage">
+				<header><li>Héritage</li></header>
+				<p>Une classe peut hériter d'une autre. La syntaxe pour ceci est:<br>
+				<code>class DerivedClass extends BaseClass {...}</code><br>
+				Une classe ne peut <q>étendre</q> qu'une seule classe de base, ce qui élimine l'héritage multiple que l'on trouve dans d'autres langages objet. Nous verrons plus loin comment une certaine forme d'héritage multiple est néanmoins possible. Une classe dérivée hérite de tous les membres non privés de sa classe de base, mais elle peut redéfinir les méthodes dont elle hérite, ce qui permet le polymorphisme. En outre dans une méthode d'une classe dérivée, une nouvelle pseudo-variable, super, est définie. Elle permet:
+				<ul>
+					<li>de forcer l'appel à une méthode définie dans la classe de base, quand celleci a été redéfinie dans la classe courante. Ceci est en particulier utile quand une redéfinition veut s'appuyer sur la définition de base.</li>
+					<li>dans un constructeur, d'appeler un constructeur de la classe de base par une technique analogue à celle vue pour this:<br>
+					<code>super(args);</code><br>
+					En fait tout constructeur d'une classe dérivée ne contenant pas d'appel explicite à this(...) ou à super(...) est supposé commencer par <q>super();</q>, ce qui déclenchera une erreur du compîlateur si la classe de base ne possède pas de constructeur sans argument, explicite ou implicite.
+					</li>
+				</ul>
+				</p>
+				<p>En fait, toutes les classes autres qu' Object qui ne comportent pas de clause extends explicite sont automatiquement considérées comme ayant une clause <q>extends Object</q>. Toutes les classes autres qu' Object sont donc des classes dérivées. Une classe peut par contre <q>résister</q> à sa propre dérivation:
+				<ul>
+					<li> Déclarer la classe elle-même comme final interdit toute dérivation</li>
+					<li>Déclarer une méthode non privée comme final interdit la redéfinition de cette méthode particulière</li>
+				</ul>
+				</p>
+				<p>Enfin l'héritage permet des conversions, implicites ou explicites, entre les types références. De façon générale si Base est une classe, et Derived une classe dérivée de Base:
+				<ol type="i">
+					<li>Une expression de type Derived peut être silencieusement convertie dans le type Base, ce qui permet à une variable déclarée Base de référence un objet de typ réel Derived, et à une méthode acceptant un argument déclaré Base de recevoir un argument de type réel Derived, ce qui est la base du polymorphisme.</li>
+					<li>Une expression de type Base peut être explicitement convertie dans le types Derived par la syntaxe:<br>
+					<code>(Derived)expr</code><br>
+					qui sera acceptée par le compilateur, mais qui pourra donner lieu à une erreur à l'exécution, si la <q>promesse</q> correspondante n'est pas tenue. Ceci s'applique aussi au cas où Base est un nterface, et Derived est une classe ou un interface qui n'est pas explicitement dérivé de Base.</li>
+					<li>Une expression de type Derived[] peut être silencieusement convertie dans le type Base[], mais c'est une conversion <q>dangereuse</q>, qui peut amener indirectement une erreur ultérieure à l'exécution: en effet le code peut ensuite affecter à un élément du tableau converti une référence à un objet qui n'est pas une instance de Derived. Ceci est démontré dans l'exemple (par ailleurs inintéressant!) suivant:<br>
+					<code>public class Bug {<br>private static void spoil(Object[] arg) {<br>if (arg.length>0)<br>arg[0]=new Object();<br>}<br>public static void main(String[] arg) {<br>spoil(arg);<br>}<br>}</code><br>
+					Ce code compile sans erreur ni avertissement, et l'exécuter par <q> java Bug</q> ne provoque aucun incident, mais exécuter:<br>
+					<code>java Bug quoi</code><br>
+					provoque le message d'erreur suivant:<br>
+					<code>java.lang.ArrayStoreException:<br>at Bug.spoil(Bug.java: 4)<br>at Bug.main(Bug.java: 7)</code><br>
+					En C++, ceci correspondrait au fait que si Derived dérive de Base, Derived * est acceptable comme Base *, mais que Derived ** n'est pas acceptable comme Base **
+					</li>
+				</ol>
+				</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="acces">
+				<header><li>Accès</li></header>
+				<p>Il faut bien distinguer la visibilité de l'accessibilité, même si les diagnostics du compilateur ne le font pas toujours. Si un objet obj d'une classe Clz posséde un membre elt, hérité ou nom, ce membre est visible:
+				<ul>
+					<li>comme obj.elt dans tous les cas</li>
+					<li>comme Clz.elt si c'est un membre de classe, et c'est alors la notation conseillée.</li>
+				</ul>
+				</p>
+				<p>Par contre, comme nous l'avons déjà décrit, le niveau de protection d' elt, et la relation entre la classe qui contient le code référençant et Clz peuvent en interdire l'usage. Dans le code d'une méthode de Clz, les notations this.elt ou Clz.elt peuvent être remplacées par la forme abrégée elt, dans la mesure où il n'y a pas de conflit avec le nom d'un argument ou d'une variable locale. Pour éviter les ambigüités sans alourdir le code, il est conseillé de donner aux attributs, surtout ceux d'instance, un nom reconaissable, comme, dans ce cas, elt_ ou m_elt.</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="abstraction">
+				<header><li>Abstraction</li></header>
+				<p>Bien que les niveaux de protection procurent une certaine séparation de l'interface et de l'implémentation, elle n'est pas totale, en particulier le source d'une classe mélange les deux. Il existe un équivalent <q>pur interface</q> d'une classe, introduit par le mot-clef interface, justement. La syntaxe de la définition d'un interface est voisine de celle d'une classe, avec quelques importantes différences:
+				<ul>
+					<li>Un interface peut être public ou package, mais aucun qualificateur de protection ne peut être appliqué à ses membres qui sont tous implicitement publics</li>
+					<li>Seules les méthodes peuvent être des membres d'instances, tout membre attribut est implicitement déclaré final</li>
+					<li>Les méthodes n'ont pas de définition, la partie <q> {...}</q> est remplacée par <q>;</q>. Elles sont <q>abstraites</q>.</li>
+					<li>Une classe qui veut <q>hériter</q> d'un interface déclare <q> implements interface </q> (en effet elle n'hérite que des déclarations, pas des définitions qu'elle devra fournir), et cette clause peut être multiple, c'est-à-dire qu'une classe peut implémenter plusieurs interfaces! </li>
+					<li>Un interface ne peut bien sûr pas hériter d'une classe, pas même d' Object, mais il peut hériter d'un ou de plusieurs interfaces, en utilisant cette fois le mot-clef extends.</li>
+				</ul>
+				</p>
+				<p>Cette notion <q>d'abstrait</q> est également étendue aux classes: une classe peut être déclarée abstract, ce qui indique qu'elle n'implémente pas toutes les méthodes qu'elle déclare (ou dont elle hérite). Les méthodes déclarées sans être implémentées doivent être elles-mêmes précédées du mot-clef abstract. Un cas typique de classe abstraite est une classe qui implémente partiellement un interface. Une classe abstraite est donc intermédiaire entre un interface et une classe <q>normale</q>, mais une autre classe ne peut (à nouveau) dériver que d'une seule classe abstraite, ce qui limite leur emploi dans une certaine mesure. On peut déclarer une variable avec pour type une référence à un interface ou à une classe abstraite, mais on est alors certain qu'à l'exécution, si cette variable contient autre chose que la référence null, elle dénote un objet ayant un autre type que le type déclaré!</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+		</ol>
+	</section>
+	<footer>
+		Copyright &copy 
+		<script type="text/javascript">
+			var d = new Date()
+			document.write(d.getFullYear())
+		</script>
+		by b14d35 All Rights Reserved.
+	</footer>
+	<script src="js/hide.js"></script>
+</body>
+</html>

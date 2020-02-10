@@ -1,0 +1,154 @@
+#cacher{
+	background: linear-gradient(grey,black);
+	width: 100%;
+	border: none;
+}
+#cacher:hover{
+	background: #383;
+}
+#cacher:focus{
+	outline: none;
+}
+body{
+	background-image: url("../images/bg.jpg");
+	background-repeat: round;
+	background-attachment: fixed;
+}
+#top_barre, #sommaire{
+	background: linear-gradient(grey,black);
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	color: white;
+}
+#top_barre ul, #sommaire ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#top_barre li{
+	float: left;
+	padding: 1%;
+	width: 10.50109%;
+	overflow-x: hidden;
+	white-space: nowrap;
+}
+#top_barre li a,#sommaire li a{
+	line-height: 30px;
+	display: block;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	font-size: 1.1em;
+}
+#top_barre li:hover, #sommaire li:hover{
+	background: linear-gradient(red,yellow);
+}
+#sommaire {
+	float: left;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	width: 25%;
+	font-size: 0.9em;
+}
+section header, article header{
+	background: linear-gradient(#070707,grey);
+	padding: 1%;
+}
+body>section>header{
+	text-align: center;
+	padding: 1%;
+	font-size: 1.4em;
+	font-style: italic;
+	font-weight: bold;
+	text-decoration: underline;
+}
+section footer, article footer{
+	background: linear-gradient(grey,#070707);
+	text-align: center;
+	float: center;
+	margin-bottom: 1%;
+}
+section footer a, article footer a{
+	color: black;
+	text-decoration: none;
+	display: block;
+	margin: auto;
+	padding: auto;
+}
+footer a:hover{
+	background-color: green;
+}
+section, article{
+	background-color: gray;
+	margin-bottom: 2%;
+}
+body>section, body>article{
+	float: left;
+	width: 74%;
+	margin-top: 1%;
+	margin-left: 1%;
+}
+body>footer{
+	background: linear-gradient(grey,#070707);
+	line-height: 45px;
+	text-align: center;
+	color: white;
+	clear: both;	
+}
+#quiz {
+	background: linear-gradient(grey,black);
+	color: white;
+	margin-bottom: 1%;
+}
+.gauche {
+	float: left;
+	width: 45%;
+	margin-bottom: 2%;
+}
+.droite {
+	float: right;
+	width: 45%;
+	margin-bottom: 2%;
+}
+#quiz button {
+	clear: both;
+	margin:auto;
+	display: block;
+	background-color: green;
+	border:none;
+	width: 20%;
+	border-radius: 10%;
+	font-size: 1.4em;
+	text-align: center;
+}
+#quiz button:focus{
+	outline: none;
+}
+#result{
+	text-align: center;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+q {
+	background-color: red;
+}
+code {
+	display: block;
+	background-color: black;
+	color: white;
+}
+@media screen and (max-width: 720px) {
+  .gauche,.droite{
+ 	clear: both; 
+ 	float: none;
+ 	width: 90%;	
+  }
+}
+#index{
+	background: linear-gradient(grey,black);
+	color: white;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	padding: 1%;
+}

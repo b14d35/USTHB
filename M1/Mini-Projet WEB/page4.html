@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eléments de base du langage</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="images/logo.gif">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<img width="100%" height="190px" src="images/learn.jpg">
+	<nav id="top_barre">
+		<button id="cacher" onclick="cacher()">⬱</button>
+		<ul>
+			<li><a href="index.html"><img width="40px" height="20px" src="images/java.png"></a></li>
+			<li><a href="page1.html">Présentation</a></li>
+			<li><a href="page2.html">POO</a></li>
+			<li><a href="page3.html">Programmes</a></li>
+			<li><a href="page4.html">Base</a></li>
+			<li><a href="page5.html">Classes</a></li>
+			<li><a href="page6.html">Exceptions</a></li>
+			<li><a href="quiz.html">Quiz</a></li>
+		</ul>
+	</nav>
+	<nav id="sommaire">
+		<h2>Sommaire</h2>
+		<ul>
+			<li><a href="#elements">Eléments lexicaux</a></li>
+			<li><a href="#types">Types, valeurs, et variables</a></li>
+			<li><a href="#declarations">Les déclarations</a></li>
+			<li><a href="#expressions">Les expressions</a></li>
+			<li><a href="#instructions">Les instructions</a></li><br>
+		</ul>
+	</nav>
+	<section>
+		<header>Eléments de base du langage</header>
+		<ol>
+			<section id="elements">
+				<header><li>Eléments lexicaux</li></header>
+				<p>Le jeu de caractères utilisé pour l'écriture des programmes est l'Unicode, qui étend les codes ASCII pour y inclure tous les caractères nationaux de tous les pays. Les caractères accentués sont typiquement acceptés comme <q>lettres</q> dans la définition des identificateurs. Ceci signifie qu'un développeur Français qui le désire peut déclarer des variables comme <q>résultat</q>. En théorie ceci est aussi vrai pour les noms de classe, mais ces noms ayant des conséquences sur les noms de fichier, les environnements et les outils peuvent mal réagir à de tels noms, et la prudence est encore conseillée.</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="types">
+				<header><li>Types, valeurs, et variables</li></header>
+				<p>java est un langage fortement typé, ce qui veut dire que toute variable doit être déclarée et typée avant qu'on puisse y faire référence, et que toute expression posséde un type déterminable à la compilation.<br>
+				Les types rentrent dans trois catégories:
+				<ol type="i">
+					<li>Les types primitifs:</li>
+					<ul>
+						<li>Les types intégraux signés:
+							<ul>
+								<li>byte sur 8 bits (attention, en C/C++, byte est souvent unsigned char)</li>
+								<li>short sur 16 bits</li>
+								<li>int sur 32 bits</li>
+								<li>long sur 64 bits</li>
+							</ul>
+							<p>Le modificateur unsigned n'existe pas en java. Les valeurs de ces types, et leurs constantes littérales, sont celles du C++ sur les machines où les tailles coïncident. Le fait que la taille de ces types soit justement , en java, indépendante de l'environnement, s'il peut être un blocage rhédibitoire pour les développeurs qui doivent coller à la machine, est un immense soulagement pour tous les autres!</p>
+						</li>
+						<li>char un entier non signé sur 16 bits, représentant un code Unicode Les valeurs et constantes littérales sont, cette fois, un sur-ensemble du C++, l'Unicode ajoutant les séquences:<br>
+						<code>'\uxxxx'</code> où xxxx représente 4 chiffrs hexadécimaux.
+						</li>
+						<li>Les types flottants IEEE signés
+							<ul>
+								<li>float sur 32 bits</li>
+								<li>double sur 64 bits</li>
+							</ul>
+						</li>
+						<li>boolean représentant une <q>valeur de vérité</q>, et dont les valeurs possibles sont true ou false</li>
+						<li>void qui est un type sans valeur!</li>
+					</ul>
+					<li>Les types qui référencent une classe.</li>
+					<p>Si l'on a une déclaration:<br>
+					<code>Car c0;</code><br>
+					en supposant que Car soit une classe définie dans un package courant ou importé, sa signification est que l'identificateur o1 est une variable qui dénote un objet de type Car. L'instruction:<br>
+					<code>c0=c1;</code><br>
+					ne signifie pas que c0 est modifié en quoi que ce soit, ni qu'une copie de c1 est créée, mais que c0 dénote maintenant le même objet que c1. Si c0 est modifiable, ce sera par:
+					<ul>
+						<li>c0.attribute =value ; en admettant que Car posséde au moins un attribut de classe modifiable</li>
+						<li>c0.modifyingMethod (); en admettant que Car possède au moins une méthode modifiante</li>
+					</ul>
+					Si c0 est passé en argument à une méthode:<br>
+					<code>public void use(Car car) {...}</code><br>
+					par l'instruction<br>
+					<code>xxx.use(c0);</code><br>
+					ce n'est pas une copie qui est transmise, mais bien une référence partagée sur l'objet initial, et si la méthode appelée modifie cet objet ci-dessus, ces modifications seront visibles à travers c0. Par contre, si la méthode exécute<br>
+					<code>car=anotherCar;</code>
+					c0 n'est pas touché. Noter que, les types primitifs ne possédant ni méthodes ni attributs, ils ne peuvent être modifiés en étant passés comme argument. On dit quelquefois que les valeurs primitves sont passées par valeur, alors que les objets sont passés par référence. En fait, en java, tous les arguments sont toujours passés par valeur, mais les valeurs qui dénotent des objets sont elles-même des références! Nous verrons d'autre part, avec l'héritage, que dans le cas de la déclaration <q>Car c0;</q>, à l'exécution, c0 peut référencer un objet d'un type <q>plus riche</q> que Car.
+					</p>
+					<li>Les types obtenus à partir d'un autre type par l'adjonction de <q>[]</q>, c'està-dire les types tableaux.</li>
+					<p>En réalité un type tableau est une classe, que son type de base soit primitif ou non, généré automatiquement par le système compilateur/machine virtuelle. Le type ne spécifie pas la dimension d'un tableau, mais un tableau existant ne peut modifier cette dimension: il possède un attribut length qui se comporte exactement comme une variable membre d'instance déclarée final. Les éléments individuels du tableau sont accédés par la syntaxe:<br>
+					<code>array[i]</code><br>
+					la machine virtuelle vérifiant que la valeur de i est compatible avec la dimension du tableau, et ils peuvent être modifiés:<br>
+					<code>array[i]=new_element;</code><br>
+					Les tableaux multi-dimensionnels sont réalisés comme des tableaux de tableaux.
+					</p>
+					<p>Le type <q>chaîne de caractères</q> n'apparaît pas explicitement: en effet ce n'est pas un type primitif, mais une classe prédéfinie, String, à laquelle le compilateur réserve un traitement spécial: en effet les constantes littérales de ce type ont la même forme qu'en C/C++ (<q>Hello World!</q>, <q>c:\\winnt</q>), l'opérateur + est surchargé de son sens usuel numérique pour exprimer la concaténation, tous les autres types sont susceptibles d'une <q>conversion</q> en String qui peut être déclenchée implicitement, par exemple quand une expression de ce type est un opérande de la concaténation. Un objet de type String ne peut jamais être modifiée: en effet les seuls membres d'instance non privés sont des méthodes non modifiantes. Les méthodes dont le nom semble <q>modifiant</q> génère en fait de nouvelles chaînes Dans le code suivant:<br>
+					<code>String unixPath=expression ;<br>String winPath=unixPath.replace('\\','/');</code><br>
+					unixPath est inchangé. Pour avoir l'équivalent d'un tableau de caractères modifiables, on doit utiliser la classe StringBuffer, qui est l'équivalent d'un char[] dont la dimension serait modifiable. On peut convertir aisément un StringBuffer en String et vice-versa.</p>
+				</ol>
+				</p>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="declarations">
+				<header><li>Les déclarations</li></header>
+				<ol type="I">
+					<article>
+						<header><li>Les variables</li></header>
+						<p>Les déclarations de variable se trouvent aussi bien dans le corps qu'une méthode que directement à l'intérieur d'une classe.Une déclaration est toujours de la forme:<br>
+						<code>type identificateur [ = valeur_initiale] ;</code><br>
+						ce qui est beaucoup plus simple que la syntaxe correspondante en C/C++. L'initialisation est optionelle, son absence impose certaines contraintes. Une déclaration peut concerner:
+						<ol>
+							<li>Une variable membre</li>
+							<ol type="a">
+								<li>d'instance</li>
+								<li>de classe, la déclaration ci-dessus est alors précédée du mot-clef static</li>
+							</ol>
+							<li>Une variable locale</li>
+							Les conséquences de l'absence d'initialisateur dans la déclaration varient suivant les cas. Dans les cas 1, une valeur par défaut est affectée. Cette valeur est
+							<ul>
+								<li>Pour les types numériques, le <q>0</q> du type concerné (par exemple, '\u0000' pour char)</li>
+								<li>Pour un boolean, false</li>
+								<li>Pour un type <q>référénce sur un object</q>, y compris un type tableau, null, qui signifie que la variable ne réfèrence aucun objet</li>
+							</ul>
+						</ol>
+						</p>
+						<p>Dans le cas 2, aucune valeur par défaut n'est affectée, mais le compilateur exige de pouvoir se convaincre que la variable recevra une valeur avant toute utilisation.<br>
+						Une variable peut aussi être qualifiée de final, ce qui signifie qu'elle ne doit prendre qu'une seule valeur au cours de son cycle de vie. Là plus encore, en l'absence d'initialisation, les exigences du système sont variables:
+						<ul>
+							<li>Dans le cas 2, le mécanisme est le même que pour les variables non final, mais bien sûr en outre le compilateur refuse toute autre affectation</li>
+							<li>Dans le cas 1(b), une initialisation est exigée (mais le message d'erreur de javac est un peu confus)</li>
+							<li>Dans le cas 1(a), les valeurs par défaut ne sont pas utilisées, tout constructeur doit comporter une affectation à ce membre, bien sûr avant tout usage, et non suivie d'une autre.</li>
+						</ul>
+						</p>
+						<p>Du point de vue du style, c'est-à-dire de la lisibilité et de la maintenance du code, il est toujours avantageux si cela est possible de ne déclarer une variable locale que quand elle peut recevoir une initialisation significative. Dans certains cas, néanmoins, l'initialisation doit être réalisée dans des branches conditionnelles, et le compilateur garantit que le développeur ne pourra pas <q>oublier</q> un cas. Le traitement des variables final membres d'instance est particulièrement intéressant, car il permet de déclarer des attributs non modifiables dont la valeur dépend néanmoins des arguments du constructeur.</p>
+					</article>
+					<article>
+						<header><li>Les méthodes</li></header>
+						<p>La déclaration d'une méthode prend la forme:<br>
+						<code>return-type methodName (argument-list ) optional-throws-clause {<br>methodBody<br>}</code><br>
+						où:<br>
+						<dl>
+							<dt>return-type</dt>
+							<dd> est ou bien le type de l'expression renvoyée par l'exécution de la méthode, ou bien void.</dd>
+							<dt>argument-list</dt>
+							<dd>est une liste de déclarations sans qualificateurs ni initialisateurs séparée par des virgules, qui décrit les arguments attendus par la méthode. Cette liste peut être vide.</dd>
+							<dt>optional-throws-clause</dt>
+							<dd>a, si elle est présente, la forme throws exception-list , nous reviendrons plus tard sur les exceptions et cette clause.</dd>
+							<dt>methodBody</dt>
+							<dd>est une liste d'instructions (voir la définition d'une instruction plus loin) qui ne peut être vide que si return-type est identique à void, sinon tout chemin d'exécution doit se terminer par une instruction return renvoyant une expression dont le type est compatible avec return-type .</dd>
+						</dl>
+						</p>
+					</article>
+				</ol>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="expressions">
+				<header><li>Les expressions</li></header>
+				<ol type="I">
+					<article>
+						<header><li>Structure des expressions</li></header>
+						<p>La syntaxe des expressions java, et, jusqu'à un certain point, leur signification, est très voisine du C++. Une expression est composée à partir des éléments suivants:
+						<ol>
+							<li>Les constantes littérales. Il en existe de type</li>
+							<ol type="a">
+								<li>int: 0, -100, 1234567890</li>
+								<li>long: 0L, -100L, 1234567891234567890L</li>
+								<li>char: 'a', '\n', '\\', '\", 'é', '\u03e9'</li>
+								<li>float: 0f, 3.14f, -6.022e+15f</li>
+								<li>double: 0., 3.14, 1e137</li>
+								<li>boolean: false et true</li>
+								<li>String, bien que ce ne soit pas un type primitif: <q></q>, <q>Hello</q>, <q>One\nTwo</q>. En outre le compilateur transformera la concaténation de deux constantes littérales de type String:<br><code>String msg=<q>Hello </q>+<q>World!</q>;</code><br>sera compilé exactement comme<br><code>String msg=<q>Hello World!</q>;</code></li>
+							</ol>
+							<br>
+							<li>Les variables. Ce sont des identificateurs reconnus comme définis et valides dans le bloc d'instructions courant en tant que (certains cas font référence à des notions décrites plus loin):</li>
+							<ol type="a">
+								<li>Une variable locale, introduite par une définition normale ou</li>
+								<li>Une variable introduite par l'initialisation d'une instruction for en cours d'exécution.</li>
+								<li>Un argument de la méthode ou du constructeur en cours d'exécution.</li>
+								<li>L'identificateur lié à l'exception en cours de traitement si un bloc de traitement d'exception est en cours d'exécution.</li>
+								<li>Une variable membre d'instance de this, si la méthode en cours d'exécution est une méthode d'instance ou un constructeur.</li>
+								<li> Une variable membre de classe de la classe dont une méthode (d'instance ou de classe) ou un constructeur est en cours d'exécution.</li>
+							</ol>
+							Les cas (a) à (d) sont en fait des variantes de variables locales, c'est-à-dire des variables dont la durée de vie n'est pa s liée à celle d'une instance ou d'une classe, mais à la durée d'exécution d'un bloc de code. En java, une variable locale ne peut jamais en cacher une autre, c'est-à-dire redéfinir une autre variable locale de même nom qui serait visible au point de la nouvelle définition.
+							<li>Les opérateurs :</li>
+							<ol type="a">
+								<li>unaires: ++, --, +, -, , !<br>Comme en C/C++, ++ et -- existent en préfixé et en postfixé</li>
+								<li>binaires, groupés par précédence:</li>
+								<ol type="i">
+									<li>multiplicatifs: *, /, %</li>
+									<li>additifs: +, -</li>
+									<li>de shift: <<, >>, <<<, >>></li>
+									<li>de comparaison: <, <=, >, >=</li>
+									<li>d'égalité: ==, !=</li>
+									<li>de manipulation binaire: &, |, ^</li>
+									<li> logiques: &&, ||</li>
+								</ol>
+								<li>ternaire: cond ? expr0 : expr1</li>
+							</ol>
+							<li>Les opérations liées au <q>transtypage</q></li>
+							<ol type="a">
+								<li>Les conversions: ( type )expr</li>
+								<li>La comparaison de type: expr instanceof referenceType</li>
+							</ol>
+							<li>Les affectations: =, et op =, op étant un des opérateurs binaires définis en (b)i, (b)ii, (b)iii, ou (b)vi.</li>
+							<li>L'opérateur d'accès à un élément d'un tableau, concrétisé par <q>[]</q>: expr [index]</li>
+							<li>L'opérateur d'accès à un attribut, concrétisé par <q>.</q> :</li>
+							<ol type="a">
+								<li>expr .attrName</li>
+								<li>referenceType .attrName</li>
+							</ol>
+							<li>Les invocations de méthodes:</li>
+							<ol type="a">
+								<li>expr .methName (arguments)</li>
+								<li>referenceType .methName (arguments)</li>
+							</ol>
+							<li>Les instantiations d'objet: new class (arguments)</li>
+						</ol>
+						</p>
+						<p>En dehors de leurs utilisations syntaxiques explicites (conversions, déclarations et invocations de méthode, instructions de boucle, traitements d'exceptions) les parenthèses sont utilisées pour grouper des sous-expressions, soit par lisibilité, soit pour imposer une signification différente de celle impliquée par les précédences par défaut. Par exemple:
+						<br><code>a*x+y</code><br>a la même signification que<br><code>(a*x)+y</code><br>et non pas la même que<br><code>a+(x*y)</code></p>
+						<p>Contrairement à C/C++, <q>,</q> n'est jamais un opérateur, il intervient uniquement comme séparateur, dans les cas suivants (certains font référence à des notions définies dans des sections ultérieures):
+						<ul>
+							<li>entre plusieurs variables déclarées simultanément</li>
+							<li> entre les paramètres formels d'une déclaration de méthode ou de constructeur</li>
+							<li>entre les argments passés lors d'une invocation de méthode ou d'une instantiation d'objet</li>
+							<li>entre plusieurs interfaces hérités par un même interface ou une même classe</li>
+							<li> entre plusieurs exceptions déclarées levées dans une déclaration de méthode</li>
+							<li>entre plusieurs instructions-expressions dans le code d'initialisation ou d'itération d'une instruction for.</li>
+						</ul>
+						</p>
+					</article>
+					<article>
+						<header><li>Remarques sur les expressions</li></header>
+						<p>
+						<ol>
+							<li>L'affectation exige que le membre gauche soit ce qu'on appelle an anblais une <q>lvalue</q>, c'est-à-dire une expression dénotant non pas simplement une valeur, mais une <q>location</q> où une valeur peut être conservée. Les lvalue en java sont:
+							<ol type="a">
+								<li>les variables, locales, ou membres de classe ou d'instances.</li>
+								<li>Une expression d'accès à un attribut de classe.</li>
+								<li>Une expression d'accès à un attribut d'instance dont le membre gauche est une lvalue.</li>
+								<li>Une expression d'accès à un élément de tableau dont le membre gauche est une lvalue.</li>
+							</ol>
+							En outre, pour être affectable:
+							<ol type="a">
+								<li>une lvalue ne doit pas être une variable final ayant déjà été initialisée</li>
+								<li>le type du membre droit doit être compatible avec celui du membre gauche (c'est-à-dire être susceptible d'une conversion implicite dans celui-ci, voir plus loin des remarques additionnelles sur ce que signifie la compatibilité pour les types primitifs) </li>
+								<li>le membre gauche doit aussi satisfaire à toutes les conditions d'accessibilité, mais ceci n'est pas une condition liée à l'opérateur d'affectation, mais intrinséque à toute expression.</li>
+							</ol>
+							</li>
+							<li> Les opérateurs ++ et -- sont à considérer comme des opérateurs d'affectation.</li>
+							<li> Nous avons décrit plus haut quelles étaient les conversions explicites et implicites valides entre types référence. Bien que les types primitifs se situent en dehors de l'orientation objet, d'une certaine façon le type int est une extension du type short. Un type numérique sera généralement convertible implicitement en un type <q>plus étendu</q>, une conversion explicite étant nécessaire dans le sens inverse. Il n'y a aucune conversion entre les types numériques et le type boolean (pas plus que null ne peut être converti en false). Attention: contrairement à ce qu'on pourrait penser, il existe des cas où une conversion implicite peut amener une perte silencieuse de précision:<br>
+							<code>int i=1234567890;<br>float f=i;</code><br>
+							Un float n'a pas suffisamment de précision pour conserver tous les chiffres significatifs de i. Le même problème se pose en affectant un long à un double.
+							</li>
+							<li>Une conséquence de l'application stricte des régles qui précèdent est que la dernière instruction du bloc suivant génère une erreur de compilation:<br>
+							<code>short s=2;<br>int i=3;<br>short t=i*s;</code><br>
+							En effet, la division est comprise comme <q> i*(int)s</q>, puisqu'il s'agit d'une conversion implicite acceptable, et l'instruction cherche alors à affecter un int à un short, ce qui exige une conversion explicite. Des formes acceptées, ayant un sens différent, mais, dans ce cas, le même résultat, sont:<br>
+							<code>short t=(short)(i*s);</code><br>ou<br><code>short t=(short)i*s;</code><br>
+							Le compilateur admet une exception à cetter régle pour les affectations de constantes calculables à la compilation, ce qui est bien agréable car il n'y a pas de constantes lexicales entières en dessous de l' int. Par exemple:<br>
+							<code>short s=1;</code><br>
+							est légal, sans nécessiter <q> (short)1</q>. Cette exception ne concerne que les affectations: si une méthode attend un argument de type short, il faudra lui passer <q> (short)1</q>.
+							</li>
+							<li>Comme nous l'avons déjà vu, les conversions implicites des type primitifs vers le type String sont une exception à ces régles. Elles sont en particulier déclenchées par l'opérateur binaire + considéré comme opérateur de concaténation, ce qui est déjà une interprétation particulière du compilateur.</li>
+							<li>Si les opérateurs de divison entière peuvent lever une ArithmeticException en cas de division par 0, ce n'est pas le cas des opérations flottantes, qui utilisent les notions IEEE d'infinité et de NAN (NotANumber), et ne provoquent jamais d'exception.</li>
+						</ol>
+						</p>
+					</article>
+				</ol>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+			<section id="instructions">
+				<header><li>Les instructions</li></header>
+				<p>Une fois encore, la syntaxe s'appuie sur le C/C++. Elles peuvent être regroupées en deux catégories, les instructions composées, qui peuvent contenir d'autres instructions , et les instructions simples, qui ne peuvent pas. Par ailleurs, toute instruction peut optionellement être précédée d'une étiquette, sous la forme:
+				<code>identificateur :<br>instruction</code><br>
+				le séparateur de ligne n'étant pas obligatoire.
+				</p>
+				<ol type="I">
+					<section>
+						<header><li>Instruction simples</li></header>
+						<p>Les instructions simples doivent toutes être terminées par un <q> ;</q>, que nous ne répéterons pas dans leur description. Ce sont:
+						<ol>
+							<li>L'instruction vide: sans commentaires.</li>
+							<li>L'instruction-expression: l'expression est évaluée pour son <q>effet de bord</q>, ce sera une affectation (y compris l'évaluation des opérateurs ++ et --), une invocation de méthode, ou une instantiation d'objet. Le compilateur rejetera toute autre expression.</li>
+							<li>L'instruction de retour de méthode. Deux formes:
+								<ol type="a">
+									<li>return si la méthode n'a pas de type de retour</li>
+									<li>return expr si la méthode a un type de retour (autre que void) déclaré.</li>
+								</ol>
+							</li>
+							<li>L'instruction break: <q>sortie</q> d'une instruction composée. Le mot-clef break peut optionnellement être suivi d'un identificateur qui doit être celui d'une étiquette d'une instruction composée englobant l'instruction courante. Si cette étiquette est spécifiée, elle identifie l'instruction <q>cible</q>. Sinon, l'instruction <q>cible</q> est l'instruction composée de type boucle ( for, while, ou do) ou switch (voir plus loin leurs descriptions) la plus intérieure englobant l'instruction courante. Si aucune instruction cible n'est identifiée le compilateur rejetera le break. Sinon l'effet est de transférer le contrôle d'exécution à l'instruction suivant immédiatement l'instruction cible (ce peut être une instruction return implicite à la fin d'une méthode sans type de retour). </li>
+							<li>L'instruction continue: <q>enchaînement</q> de boucle. Le mot-clef continue peut optionnellement être suivi d'un identificateur qui doit être celui d'une étiquette d'une instruction composée englobant l'instruction courante. Si cette étiquette est spécifiée et si l'instruction identifiée est une instruction de boucle, elle identifie l'instruction <q>cible</q>. Sinon, l'instruction <q>cible</q> est l'instruction composée de type boucle la plus intérieure englobant l'instruction courante. Si aucune instruction cible n'est identifiée le compilateur rejetera le continue. Sinon l'effet est de transférer le contrôle d'exécution au point de l'instruction de boucle qui enchaîne sur l'itération suivante.</li>
+							<li>L'instruction throw: sa syntaxe est:<br>
+								<code>throw exceptionExpr</code><br>
+								exceptionExpr devant s'évaluer comme une instance dérivée de Throwable (normalement Exception), et son effet est de lever l'exception en question, et de transférer <q>abruptement</q> le contrôle d'exécution au premier point de code appelant ayant déclaré traiter une exception de ce type (voir plus loin l'instruction try).
+							</li>
+						</ol>
+						</p>
+					</section>
+					<section>
+						<header><li>Instructions composées</li></header>
+						<p>
+							<ol>
+								<li>Le bloc: la syntaxe du bloc est une liste d'instructions encadrées par <q> {</q> et <q>}</q>. Cette liste peut être vide, <q> {}</q> est donc une instruction composée légale de type bloc.</li>
+								<li>Le bloc synchronisé: la syntaxe est celle du bloc précédée de <q> synchronized(expr )</q>. expr doit s'évaluer comme une référence non null à un objet. Si expr possède un type primitif, le compilateur rejetera l'expression. Sinon, et si expr s'évalue comme null, une exception sera levée à l'exécution </li>
+								<li>L'instruction conditionnelle: sa syntaxe est:<br>
+								<code>if (booleanExpr ) yesStatement [ else noStatement]</code><br>
+								yesStatement et noStatement étant des instructions quelconques, et la partie else étant optionnelle.
+								</li>
+								<li> L'instruction de branchement: sa syntaxe consiste en l'encadrement <q>par switch(expr) {</q> et <q>}</q> d'une suite <q>d'étiquettes de choix</q>et d'instructions, une <q>étiquette de choix</q> étant soit:<br>
+								<code>default:</code><br>soit:<br><code>case constantExpr :</code><br>
+								Cette forme est soumise à certaines contraintes:
+								<ul>
+									<li>expr doit être d'un type intégral autre que long.</li>
+									<li>les constantExpr doivent être déterminées au moment de la compilation et affectables au type de expr .</li>
+									<li>deux étiquettes de choix dans la même instruction de branchement ne peuvent pas être identiques</li>
+								</ul>
+								A l'exécution de cette instruction, exp r est évaluée et une des étiquettes est choisie en fonction de sa valeur . Si cette valeur ne corrrespond à aucun des <q> case ...:</q> et si l'étiquette default n'est pas présente, le contrôle est transféré à l'instruction suivant l'instruction de branchement. Sinon le contrôle est transféré à l'instruction précédée par l'étiquette. Cette instruction est certes utile, mais avant même de ne pas être orientée objet, elle est aussi peu compatible avec la programmation structurée. C'est en fait un héritage quasi-direct de l'assembleur!
+								</li>
+								<li>L'instruction de traitement d'exception. Sa syntaxe est:<br>
+								<code>try tryBlock<br>catch(ExceptionClass id ) handlerBlock<br>...<br>[ finally finalBlock]</code><br>
+								block représentant une instruction de type bloc, les <q> ...</q> signifiant que la clause catch peut être répétée, et les <q> [] </q> signifiant que la clause finally est optionelle (en réalité un tel bloc peut aussi comporter une clause finally sans aucune clause catch). Les ExceptionClass doivent être des types références dérivés de Throwable. A l'exécution:
+								<ol type="a">
+									<li>tryBlock est exécuté.</li>
+									<li>Si une exception est levée et non traitée à l'intérieur de cette exécution, et si son type est compatible avec l' ExceptionClass d'une ou plusieurs clauses catch:
+										<ol type="i">
+											<li>le contrôle est transféré au handlerBlock de la première telle clause, id référençant l'objet exception qui a été levé. </li>
+											<li> si l'exécution de ce bloc lève une nouvelle exception, elle est propagée vers les niveaux supérieurs</li>
+										</ol>
+									</li>
+									<li>Si aucune clause ne satisfait la condition précédente, l'exception originelle est propagée vers les niveaux supérieurs.</li>
+									<li>Si une clause finally est présente, dans tous les cas :
+										<ol type="i">
+											<li>finalBlock est exécuté après terminaison du mainBlock et/ou du handlerBlock</li>
+											<li>si cette exécution lève une exception, elle est propagée vers les niveaux supérieurs, remplaçant éventuellement l'expression mentionnée en (b)ii ou (c).</li>
+										</ol>
+									</li>
+								</ol>
+								</li>
+								<li>L'instruction for: la syntaxe en est:<br>
+								<code>for ([init] ;[booleanExpr] ;[next] ) statement</code><br>
+								statement étant une instruction, les <q> [] </q> indiquant un caractère optionnel, init étant soit une déclaration de variable locale avec initialisation, soit une liste d'instructions-expressions séparées par des virgules, next étant une liste d'instructions-expressions séparées par des virgules. L'exécution de l'instruction for se décompose ainsi:
+								<ol type="a">
+									<li>Initialisation:</li>
+									<ol type="i">
+										<li>Si init est une déclaration de variable, elle est exécutée, la portée de la variable étant le reste des composants du for. </li>
+										<li>Sinon, la ou les instructions composant init sont exécutées dans l'ordre.</li>
+									</ol>
+									<li>Itération:</li>
+									<ol type="i">
+										<li>Si booleanExpr est présent et si son évaluation renvoie false, l'instruction for est terminée</li>
+										<li> Sinon, statement est exécuté, la ou les instructions composant next sont exécutées dans l'ordre, et une autre itération est entamée</li>
+									</ol>
+								</ol>
+								</li>
+								<li>L'instruction while: la syntaxe en est:<br>
+								<code>while (booleanExpr ) statement</code><br>
+								L'exécution ne comporte qu'une phase, l'itération:
+								<ol type="a">
+									<li>Si l'évaluation de booleanExpr renvoie false, l'instruction while est terminée</li>
+									<li>Sinon, statement est exécuté, et une autre itération est entamée.</li>
+								</ol>
+								</li>
+								<li>L'instruction do: la syntaxe en est:<br>
+								<code>do statement while (booleanExpr ) ;</code><br>
+								ce qui en fait la seule instruction composée à se terminer par un <q> ;</q>. L'exécution ne comporte qu'une phase, l'itération:
+								<ol type="a">
+									<li>statement est exécuté</li>
+									<li>Si l'évaluation de booleanExpr renvoie false, l'instruction do est terminée, sinon une autre itération est entamée</li>
+								</ol>
+								</li>
+							</ol>
+						</p>
+					</section>
+				</ol>
+				<footer><a href="#sommaire">Retour au sommaire</a></footer>
+			</section>
+		</ol>
+	</section>
+	<footer>
+		Copyright &copy 
+		<script type="text/javascript">
+			var d = new Date()
+			document.write(d.getFullYear())
+		</script>
+		by b14d35 All Rights Reserved.
+	</footer>
+	<script src="js/hide.js"></script>
+</body>
+</html>
