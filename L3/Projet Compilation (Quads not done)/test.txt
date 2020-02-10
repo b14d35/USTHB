@@ -1,0 +1,23 @@
+ALGORITHME test
+VAR 
+	x|z|s|x:entier;
+	f[-1]:chaine;
+	t|h[10]:reel;
+	t:entier;
+DEBUT
+
+/*  Multiple
+
+	Line 
+	
+	Comment
+*/
+f<--f+"hjhj"+x;
+x<--z-8*s/56666666666666+z/0.0;
+faire h[12]<--h+j+h[23]; si (x=z)
+POUR x<--1 jusque 10 faire
+POUR z<--1 jusque 10 faire
+	t<--t+1.0;
+fait
+fait
+FIN

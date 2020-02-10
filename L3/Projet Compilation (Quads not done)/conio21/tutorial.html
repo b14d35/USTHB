@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <title>CONIO tutorial</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 1em 2em;
+      border: 1px solid darkgrey;
+      background-color: lightgrey;
+    }
+    #all {
+      background-color: #EEE;
+      padding: 1em;
+    }
+    h1 {
+      margin: 0;
+      text-align: center;
+      font-size: 400%;
+    }
+    p {
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+    .code {
+      font-family: monospace;
+      font-size: 120%;
+      margin: 1ex 0;
+      padding: 1ex;
+      border: 1px solid darkgrey;
+      background-color: white;
+    }
+  </style>
+</head>
+<body><div id='all'>
+  <h1>CONIO introduction</h1>
+  <!-- <h1>CONIO tutorial</h1> -->
+  <h2>What is CONIO library good for?</h2>
+  <p>
+    The library is designed for simple output in text console. Imagine that you
+    want to write to console window at position (10, 10) text "Hello" in a
+    yellow color on a blue background. With CONIO you can do this with the
+    C code:
+  </p>
+  <p class='code'>
+    gotoxy(10, 10);       <br />
+    textcolor(YELLOW);    <br />
+    textbackground(BLUE); <br />
+    cputs("Hello");       <br />
+  </p>
+  or even simpler with C++ equivalent:
+  <p class='code'>
+    cout &lt;&lt; setxy(10, 10) &lt;&lt; setclr(YELLOW) &lt;&lt; setbk(BLUE)
+         &lt;&lt; "Hello";
+  </p>
+</div></body>
+</html>
