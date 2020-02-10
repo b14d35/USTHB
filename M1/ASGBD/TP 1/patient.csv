@@ -1,0 +1,81 @@
+NUM_PATIENT;NOM_PATIENT;PRENOM_PATIENT;ADRESSE_PATIENT;TEL_PATIENT;MUTUELLE
+1;GRIGAHCINE;Nacer;95, Bd Bougara-El biar-Alger;21920313;MNAM
+3;ABADA    ;ABDELHAMID;Rue Des Freres Bouchama Bt A Bloc F N 138-Constantine;31944128;LMDE
+6;ABERKANE    ;Aboukhallil;CITE 500 LOGTS BT 29 N 02 KHROUB- Constantine;31963658;MNH
+13;MAHBOUBA;Cherifa;CITE 1013 LOGTS BT 61 KHROUB- Constantine;31966095;MAAF
+14;ACHEUK;Youcef;Rue Des Freres Khaznadar Bt N  28- Constantine;31964664;MGEN
+21;ACHOUR;Fadila;CITE 1650 LOGTS BT F8 N 71 AIN SMARA- Constantine;31974253;MMA
+23;AKROUM;Mohammed;Cité Aïssa Harièche, Bâtiment B, n° 12 18000 – Jijel;34497088;CNAMTS
+33;ADJALI    ;Temim;lot 212 villa n  52 ain smara- Constantine;31974214;CCVRP
+35;HADJ;Haroun;avenue 1er novembre 54-Sétif;36834401;MNFTC
+36;LATRI;Cherifa;cite 600 logts bt a10 n66-Sétif;36512093;MAS
+37;SEDDIK AMEUR;Moussa;cite belkhired hacene bt d39 n°593-Sétif;36722343;AG2R
+41;ZENTOUT;Nazih;47,Rue des Frere Niati– Plateaux – Oran;41 400 805;MGSP
+43;CHALABI;Mirali;24 rue Larbi Ben Mhidi – 0ran;41 292 275;MNAM
+44;BOUABDALLAH;Reda;7è rue n° 394 Tourville – Arzew – W.Oran;770 920 566;LMDE
+46;BESALAH;Kaddour;112, coop de 18 fevrier -St hubert – Oran;41343241;MNH
+52;BOUDJELAL;Salim;15, Rue Miloud Benhaddou– Plateaux – Oran;41407746;MAAF
+55;AMARA    ;Med Sofiane;CITE DAKSI BT 09 N 03 CONSTANTINE;31637827;MGEN
+56;AMROUNE    ;Ahmed Lamine;04 RUE MICHELET CONSTANTINE;31923090;MMA
+60;AZZI    ;Kamel;RUE ABANE RAMDANE N 13 CONSTANTINE;31911002;CNAMTS
+61;BACHTARZI    ;Faycal;7, RUE BENMELIEK (EX RUE PINGET) CONSTANTINE;31912244;CCVRP
+63;BOUZIDI ;kamal;79 RUE BELOUIZDAD BELCOURT-Alger;21650220;MNFTC
+65;MAICH;Sid-Ali;87, avenue Ali Khodja-El Biar-Alger ;21925219;MAS
+66;HAFIZ;Mahmoud;01,lot Houari Boumediènne .SIDI MOUSSA -Alger;770360116;AG2R
+67;OUGHANEM;Mohamed;"Diar Es Saada, Bt T, N°2; El Madania, Alger  ";21279526;MGSP
+68;SERIR;Mustapha;2, rue ait Boudjemaa- Chéraga-Alger;21361688;MNAM
+70;ZEGGAI;Abdelkader;219 route Ain Elbordj Tissemssilt 38000-Tissemsilt;46496134;LMDE
+72;TAHMI;Lamia;CITE BACHEDJARAH BATIMENT 38 -Bach Djerrah-Alger;21261446;MNH
+74;DIAF AMROUNI;Ghania;43, rue Abderrahmane Sbaa Belle vue-El Harrach-Alger;21526166;MAAF
+75;MELEK;Chahinaz;HLM Aissat idir cage 9 3ème etage-El Harrach-Alger;21828898;MGEN
+76;TECHTACHE;Noura;16, route el djamila-Ain Benian-Alger;21306517;MMA
+77;TOUATI;Widad;14 Rue des frères aoudia-El Mouradia-Alger;21690000;CNAMTS
+78;MAIDAT;Yassine;cité soumam Bt B1 n° 6-Boufarik-Blida;25473974;CCVRP
+79;CHERIF;Nassim;Avenue hanafi hadjress-Beni Messous-Alger;550084741;MNFTC
+81;YOUSFI;Mohamed;Résidence Familiale-Hussein Dey-Alger;21479918;MAS
+90;YASRI;Hocine;6 rue med Fellah Kouba-Alger;21286589;AG2R
+91;BAKIR;Adel;Cogral 1 rue de gao nouveau port alger;555037013;MGSP
+92;ABLOUL;Faiza;Cité diplomatique Bt Bleu 14B n°3 Dérgana- Alger;21217888;MNAM
+100;HORRA;Assia;32 rue Ahmed Ouaked-Dely Brahim-Alger;21919105;LMDE
+101;MESBAH;Souad;Résidence Chabani-Hydra-Alger;21602311;MNH
+102;LAAOUAR;Ali;CITÉ 1ER MAI EX 137 LOGEMENTS-Adrar;49963143;MAAF
+103;DRIZI;Djamel;36 hai salem. 2000-Chlef;27722020;MNAM
+104;HADJADJ;Boumediene;EPSP ksar el hirane LAGHOUAT;661646970;LMDE
+105;GROUDA;Houda;EPSP thniet elabed batna;773516149;MNH
+107;MEDJAHED;Ahmed;CITE el naaser-Ain Touta-Batna;33835858;MAAF
+108;IDJAAD;Mohand;504 logts bt 07-Akbou-Bejaia;34353567;MGEN
+109;KACI;Ali;08 Rue SEFACENE Ahmed-El-Kseur-Bejaia;34252429;MMA
+117;KECIR;Laziz;av hassiba benbouali-Béjaïa;34217564;CNAMTS
+119;FENNICHE;Saida;cite de l’indépendance larbaa blida;25466475;CCVRP
+120;KOUBA;Mohamed;CENTRE BENCHAABANE-Ben Khellil-Blida;25470276;MNFTC
+121;AOUIZ;Messoud;Rue Saidani Abdesslam -Ain Bessem-Bouira;26974956;MAS
+123;OUADAHI;Djaffar;rue amar makhlouf m'chedallah bouira;554180643;AG2R
+124;MIMOUNI;Salah;bp 474 tamanrasset;550993505;MGSP
+128;TOUMI;Ahmed;cite 5 juillet BP n° 294-In Salah-Tamanrasset;29360311;MNAM
+133;TRAD;Abd elkader;El Ogla el Malha-Tébessa;37447300;LMDE
+137;SAADI;Med Tayeb;route strategique 12000-Tébessa;37481154;MNH
+138;HALFAOUI;Redouane;Aderb krima rue des frères benchekra-Tlemcen;779719617;MAAF
+145;KEDJNANE;Brahim;cité des 48 lgts-Sougueur-Tiaret;663125949;MGEN
+146;FADEL;Abderahmane;Cité Rousseau Bt D-Tiaret;46451212;MMA
+147;BENNABI;Ahmed;cité 120 logts bt C n° 11. 15600-Tigzirt-Tizi Ouzou;26258494;CNAMTS
+148;AKIL;Farid;3 rue Larbi Ben M'hidi-Draa El Mizan-Tizi Ouzou;26234316;CCVRP
+149;DIAF;Ali;Rue Ali Abdelmoumen-Tigzirt-Tizi Ouzou;26259630;MNFTC
+153;CHERFI;Rabah;Hassi Bahbah-Hassi Bahbah-Djelfa;27863306;MAS
+154;RABOUZI;Mohamed;Cité Mohamed Chaounan bloc 831-02-Djelfa;665781440;AG2R
+158;HMIA;Seddik;25 rue Ben Yahiya-Jijel;34472300;MGSP
+159;MERABET;Ourida;19 Av. Ben Yahiya-Jijel;34472300;MNAM
+164;OUALI;Samia;cité 200 logements bt1 n°1-Jijel;34501028;LMDE
+166;HADDAD;Fatiha;rue boufada lakhdarat-Ain Oulmène-Setif;36720221;MNH
+167;MATI;Djamel;Draa kebila hammam guergour sétif;664504332;MAAF
+168;Maiza;Rima;Cité brarma n 5-Sétif;774208681;MGEN
+171;RAFFAOUI;Meriem;Rue MERIEM BOUATOURA SETIF;557541887;MMA
+172;ZERARGA;Mustapha;Cité Hachemi D2 N° 18 Sétif;551269045;CNAMTS
+175;OUCHERIT;Aissa;43, Rue Larbi Ben Mhidi – Oran;41406670;CCVRP
+181;GHRAIR;Mohamed;Cité Jeanne d’Arc Ecran B5-Gambetta – Oran;41531208;MNFTC
+182;MOUHTADI;Dalila;6, Bd Tripoli – Oran;41391640;MAS
+184;CHALAH;Younes;cité des 60logts bt D n° 48-Naciria-Boumerdes;24880106;AG2R
+187;HAMIDI;Mahfoud;BP 24 G Frantz Fanon-Boumerdes;771500169;MGSP
+188;TITOUCHE;Mohamed;Cité des 50 logts. Sidi Daoud-Boumerdes;24891120;MNAM
+190;BARKAT    ;Boubeker;CITE MENTOURI N 71 BT AB SMK Constantine;31688561;LMDE
+191;DJAKANI;Mostafa;hai nasr-Tindouf;49934241;MNH
+192;HABABB;khadra;Cité lakssabi-Tindouf;49922543;MAAF
