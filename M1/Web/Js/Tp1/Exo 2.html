@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Controle Formulaire </title>
+</head>
+<body>
+	<form onsubmit="Check()">
+		<label>Age:</label><input type="text" name="age" placeholder="Entrez votre age">
+	</form>
+	<script type="text/javascript">
+		function Check(){
+			var age = document.getElementsByName("age")[0].value;
+			if(isNaN(age)) alert("Valeur non numérique");
+			else if(age < 6) alert("Vous êtes trop jeune");
+			else if (age > 96) alert("Vous êtes trop vieux");
+			else alert("Votre age est valide: "+age);
+		}
+	</script>
+</body>
+</html>

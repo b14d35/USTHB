@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Formulaire </title>
+	<link rel="icon" href="E:\codeblocks\share\CodeBlocks\images\wxsmith\wxTextEntryDialog32.png">
+</head>
+<body>
+	<form>
+		<fieldset>
+			<legend>Informations personnelles:</legend>
+			<label>Nom:</label><input type="texte" name="nom" placeholder="Saisir votre nom"><br>
+			<label>Prénom:</label>
+			<input type="texte" name="prenom" placeholder="Saisir votre prénom"><br>
+			<label>Sexe:</label><br>
+			<input type="radio" name="sexe" checked>Masculin<br>
+			<input type="radio" name="sexe">Féminin<br>
+			<label>Date de naissance:</label>
+			<input type="date" name="dateN" min="1920-01-01" max="2008-01-01"><br>
+			<label>Lieu de naissance:</label>
+			<input list="wilayas">
+			<datalist id="wilayas">
+				<option>Alger</option>
+				<option>Boumerdes</option>
+				<option>Constantine</option>
+			</datalist><br>
+			<label>Nombre de frères et sœurs:</label>
+			<input type="number" name="nombre" min="0" max="14"><br>
+			<label>Adresse:</label><br>
+			<textarea placeholder="Saisir votre adresse"></textarea><br>
+			<label>Num téléphone:</label>
+			<input type="tel" name="tel"><br>
+			<label>E-mail:</label>
+			<input type="email" name="email" >
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend>Informations d'authentification:</legend>
+			<label>User name:</label>
+			<input type="texte" name="username"><br>
+			<label>User password:</label>
+			<input type="password" name="password">
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend>Divers:</legend>
+			<label>Vos contres d'intérêt:</label><br>
+			<input type="checkbox" name="interet1">Lecture<br>
+			<input type="checkbox" name="interet2">Musique<br>
+			<input type="checkbox" name="interet3">Dessin<br>
+			<input type="checkbox" name="interet4">Cuisine<br><br>
+			<label>Votre coleur préférée:</label><br>
+			<select>
+				<option>Noir</option>
+				<option>Rouge</option>
+				<option>Bleu</option>
+				<option>Jaune</option>
+			</select>
+			<br><br>
+			<label>Autres couleurs que vous aimez bien:</label><br>
+			<select multiple>
+				<option>Violet</option>
+				<option>Vert</option>
+				<option>Orange</option>
+				<option>Blanche</option>
+			</select>
+			<br><br>
+			<label>Sélectionnez votre couleur préférée:</label>
+			<input type="color" name="couleur">
+		</fieldset>
+		<h1>Bouton de réinitialisation</h1>
+		<input type="reset" name="Rétablir">
+		<h1>Bouton de soumission</h1>
+		<input type="submit" name="Envoyer">
+	</form>
+</body>
+</html>

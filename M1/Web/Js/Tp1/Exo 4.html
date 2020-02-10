@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tableau HTML</title>
+	<style type="text/css">
+		table {
+			border:1px solid red;
+		}
+		td {
+			border:2px dotted green;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<label>Number deviseur de 5:</label><input type="Number" name="max" id="max">
+	<button onclick="Show()">Click me!!</button>
+	<script type="text/javascript">
+		function Show(){
+			var num = document.getElementById("max").value;
+			num = num - (num%5);
+			var temp = "<table><tr>";
+			for (var i = 0; i < num; i++){
+				if (i%5 == 0) temp+="</tr><tr>";
+				temp+="<td>"+i+"</td>";
+			}
+			temp+="</tr></table>";
+			document.body.innerHTML = temp;
+		}
+	</script>
+</body>
+</html>

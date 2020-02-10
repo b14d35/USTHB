@@ -1,0 +1,81 @@
+body {
+	margin: 0.5%;
+	padding: 2%;
+	background-color: cyan;
+}
+
+body>header, body>footer {
+	float: center;
+	background-color: red;
+	padding: 1%;
+	text-align: center;
+	width: 100%;
+}
+
+header {
+	text-align: center;
+	background-color: yellow;	
+}
+
+nav ol {
+	list-style-type: none;
+	margin: 1%;
+	padding: 1%;
+}
+
+nav li {
+	padding: 1%;
+	background-color: yellow;
+	color: cyan;
+	border: 1px solid black;
+	border-radius: 20px;
+}
+
+nav li:hover {
+	background-color: black;
+}
+
+nav a {
+	text-decoration: none;
+	text-align: center;
+}
+
+#sommaire {
+	float: left;
+	background-color: pink;
+	margin: 1px;
+}
+
+#resume {
+	float: left;
+	width: 60%;
+	background-color: blue;
+	margin: 2px;
+}
+
+#chapitre1, #chapitre2, #chapitre3 {
+	float: center;
+	width: 60%;
+	background-color: blue;
+	margin: 2px;
+	margin-left: 11.4%;
+	margin-bottom: 4px;
+}
+
+#glossaire {
+	width: 100;
+	background-color: blue;
+	margin: 2px;
+}
+
+aside {
+	float: right;
+	width: 25%;
+	background-color: green;
+	margin: 2px;
+}
+
+section>footer, article>footer {
+	background-color: gray;
+	text-align: right;
+}

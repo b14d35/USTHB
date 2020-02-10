@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercice 3</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<img width="500px" height="400px" id="img" src="file:///C:/Users/N/Desktop/Work/Web/B/Js/Tp2/a.JPG"><br>
+	<button onclick="clearInterval(xxx)">Arreter</button>
+	<button onclick="var xxx = setInterval(function(){ alternate(); }, 1000);">Reprendre</button>
+	<script type="text/javascript">
+		var xxx = setInterval(function(){ alternate(); }, 1000);
+		function alternate(){
+
+			var x = document.getElementById("img").src;
+			var y = "";
+			if(x == "file:///C:/Users/N/Desktop/Work/Web/B/Js/Tp2/a.JPG") y = "file:///C:/Users/N/Desktop/Work/Web/B/Js/Tp2/b.JPG";
+			else y = "file:///C:/Users/N/Desktop/Work/Web/B/Js/Tp2/a.JPG";
+			document.getElementById("img").setAttribute("src",y);
+
+		}
+	</script>
+</body>
+</html>

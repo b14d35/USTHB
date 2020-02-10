@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercice 4</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<button onclick="Bonjour()">Ouvrir</button>
+	<button onclick="New()">Nouveau</button>
+	<script type="text/javascript">
+		function Bonjour(){
+			var myWindow = window.open("bonjour.txt", "", "width=500,height=500,left=100,top=100");
+		}
+		function New(){
+			var newW = window.open("","", "width=500,height=500,left=100,top=100");
+			var p = "<p style='text-align:center;'>Ceci est un simple paragraphe</p>";
+			newW.document.write(p);
+		}
+	</script>
+</body>
+</html>

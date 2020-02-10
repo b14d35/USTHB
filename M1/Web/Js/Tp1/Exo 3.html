@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button Color</title>
+</head>
+<body>
+	<label>Coleur préféré:</label><input type="color" name="color" id="color" onchange="ChangeColor()">
+	<button onclick="ChangeColorRed()"> Click me !!</button>
+	<script type="text/javascript">
+		function ChangeColor(){
+			var col = document.getElementById("color").value;
+			document.bgColor = col;
+		}
+		function ChangeColorRed(){
+			document.bgColor = "red";
+		}
+	</script>
+</body>
+</html>

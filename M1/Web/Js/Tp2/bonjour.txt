@@ -1,0 +1,13 @@
+Description des caractéristiques:
+	•	width=x : Largeur de la nouvelle fenêtre en pixels.
+	•	height=x : Hauteur de la nouvelle fenêtre en pixels. La valeur minimale est de 100 pixels.
+	•	toolbar=yes ou no : Affichage de la barre d’outils. La valeur par défaut est yes
+	•	location=yes ou no : Affichage de la barre d’adresse.
+	•	directories=yes ou no : Affichage des boutons d’accès rapide (barre de liens). Pas d’affichage sous IE 7.
+	•	status=yes ou no : Affichage de la barre d’état.
+	•	menubar=yes ou no : Affichage de la barre de menus.
+	•	scrollbars=yes ou no : Affichage des barres de défilement.
+	•	resizable=yes ou no : Redimensionnement de la fenêtre.
+	•	fullscreen=yes ou no : Affichage de la nouvelle fenêtre en plein écran. Internet Explorer uniquement.
+	•	top=x : Position en pixels par rapport au bord supérieur de l’écran.
+	•	left=x : Position en pixels par rapport au bord gauche de l’écran.

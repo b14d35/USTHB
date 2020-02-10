@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tableau de mots</title>
+</head>
+<body>
+	<table id="tableau">
+		<tr><td>Une</td><td>phrase</td></tr>
+		<tr><td>Temporaire</td><td>qui</td></tr>
+		<tr><td>sera</td><td>transformé</td></tr>
+		<tr><td>en</td><td>liste</td></tr>
+	</table>
+	<button onclick="toList()"> Click here !!</button><br>
+	<textarea id="tab" placeholder="Entrez votre phrase" rows="10" cols="50"></textarea><br>
+	<button onclick="Tab()"> Click me !!</button>
+	<script type="text/javascript">
+		function toList(){
+			var temp = document.getElementById("tableau").innerText;
+			var tab = temp.split(" ");
+			var len = tab.length;
+			document.body.innerHTML = "<br><ul>";
+			for (var i=0;i<len;i++) document.body.innerHTML += "<li>"+tab[i]+"</li>";
+			document.body.innerHTML += "</ul>";
+		}
+
+		function Tab(){
+			var temp = document.getElementById("tab").value;
+			var tab = temp.split(" ");
+			var len = tab.length;
+			document.body.innerHTML = "<br><ul>";
+			for (var i=0;i<len;i++) document.body.innerHTML += "<li>"+tab[i]+"</li>";
+			document.body.innerHTML += "</ul>";
+		}
+	</script>
+</body>
+</html>

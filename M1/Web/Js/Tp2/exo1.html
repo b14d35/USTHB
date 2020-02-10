@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercice 1</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<p id="p1">Le but de ce TP est de modifier les attributs du DOM afin de créer une alternance de deux images à intervalle régulier. Pour cela, vous allez créer une page html contenant une image, et programmer en JavaScript une alternance entre cette image et une autre, toutes les deux secondes. Enfin nous allons ajouter deux boutons : un bouton pour arrêter ce défilement et un bouton pour le reprendre.</p>
+	<p>L’usage des nouvelles fenêtres, appelées aussi fenêtres popup, est souvent utile pour afficher des informations complémentaires sans surcharger la page de départ. Elles comportent cependant des inconvénients : ces fenêtres sont utilisées de manière abusive à des fins publicitaires et donc bloquées par les navigateurs pour protéger l’utilisateur. Il est conseillé de bien fermer les fenêtres popup et à les utiliser avec modération.</p>
+	<p>Créer une page HTML avec un formulaire et un bouton. Le clic sur le bouton permet de créer une nouvelle fenêtre permettant d’afficher le fichier bonjour.txt créé précédemment. Spécifier pour cette fenêtre une hauteur et une largeur de 500, positions haut et gauche de 100 chacune.</p>
+	<form action="#">
+		<button onclick="Color()">Changer Couleur</button>
+		<button onclick="Center()">Centrer</button>
+		<button onclick="Masquer()">Masquer</button>
+		<button onclick="Afficher()">Réafficher</button>
+	</form>
+	<script type="text/javascript">
+		function Color(){
+			var col = "#";
+			for(var i=0;i<6;i++) col+=(Math.floor(Math.random()*100*i)%10);
+			document.getElementById("p1").style.color = col;
+		}
+		function Center(){
+			document.getElementById("p1").style.textAlign = "center";
+		}
+		function Masquer(){
+			document.getElementById("p1").style.display = "none";
+		}
+		function Afficher(){
+			document.getElementById("p1").style.display = "block";
+		}
+	</script>
+</body>
+</html>

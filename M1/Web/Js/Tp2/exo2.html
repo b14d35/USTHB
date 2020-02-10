@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercice 2</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<ul id="liste"></ul>
+	
+		<input type="text" name="elt" id="elt">
+		<button onclick="Ajout()">Ajouter</button>
+	
+	<script type="text/javascript">
+		function Ajout(){
+			var x = document.getElementById("elt").value;
+			var z = document.
+			if(x != ""){
+				var y = document.getElementById("liste").innerHTML;
+				y+="<li>"+x+"</li>";
+			}
+			document.getElementById("liste").innerHTML = y;
+		}
+	</script>
+</body>
+</html>
