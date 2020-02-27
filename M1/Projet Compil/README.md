@@ -20,6 +20,6 @@
 
 ![](https://raw.githubusercontent.com/b14d35/USTHB/master/M1/Projet%20Compil/screenshots/quad_optim.PNG)
 
-### A prt of the generated assembly code
+### A part of the generated assembly code
 
 ![](https://raw.githubusercontent.com/b14d35/USTHB/master/M1/Projet%20Compil/screenshots/assembly_result.PNG)
