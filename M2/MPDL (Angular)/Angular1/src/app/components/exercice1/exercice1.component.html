@@ -1,0 +1,81 @@
+<app-header [title]="'Exercice 1'"></app-header>
+<!--<img class="exerice" src="/assets/thinking.jpg" />-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2">
+      <input type="number" class="form-control" [(ngModel)]="lastVal" />
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-lg-1">
+      <button class="btn btn-primary" (click)="tableau.addElement(1, lastVal)" [disabled]="show==1"
+        required>
+        ajouter tab 1
+      </button>
+    </div>
+    <div class="col-lg-2">
+      <button class="btn btn-warning" (click)="tableau.addElement(2, lastVal)" [disabled]="show==1"
+        required>
+        ajouter tab 2
+    </button>
+    </div>
+  </div>
+  <br />
+  <button class="btn btn-success" (click)="afficher()"
+    [disabled]="show==1 || tableau.tab1.length ===0 || tableau.tab2.length ===0">Valider</button>
+  <br />
+  <br />
+  <div class="tab1">
+    <label *ngIf="tableau.tab1.length !==0 ">Table 1: </label>
+    <table>
+      <tr>
+        <td *ngFor="let x of tableau.tab1">{{ x }}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="tab2">
+    <label *ngIf="tableau.tab2.length !==0 ">Table 2: </label>
+    <table>
+      <tr>
+        <td *ngFor="let y of tableau.tab2">{{ y }}</td>
+      </tr>
+    </table>
+  </div>
+  <div *ngIf="show === 1">
+    <div class="somme" *ngIf="tableau.tab1.length === tableau.tab2.length">
+      <label>Somme: </label>
+      <table>
+        <tr>
+          <td *ngFor="let y of tableau.somme()">{{ y }}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="soust" *ngIf="tableau.tab1.length === tableau.tab2.length">
+      <label>Soustraction: </label>
+      <table>
+        <tr>
+          <td *ngFor="let y of tableau.soust()">{{ y }}</td>
+        </tr>
+      </table>
+    </div>
+    <h3 *ngIf="tableau.tab1.length !== tableau.tab2.length" class="erreur"> Les tableaux doivent avoir la meme taille
+      pour appliquer la somme et la soustraction</h3>
+    <div class="concat">
+      <label>Concatenation: </label>
+      <table>
+        <tr>
+          <td *ngFor="let y of tableau.concat()">{{ y }}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="fusion">
+      <label>Fusion: </label>
+      <table>
+        <tr>
+          <td *ngFor="let y of tableau.fusion()">{{ y }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

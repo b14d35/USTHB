@@ -1,0 +1,21 @@
+#horloge {
+  display: block;
+  position: relative;
+  left: 20%;
+  top: 10%;
+}
+.same {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.aiguille {
+  left: 221px;
+  top: 51px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}

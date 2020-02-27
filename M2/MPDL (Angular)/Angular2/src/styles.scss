@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding: 15px;
+}
+
+ul.menu {
+  margin: 10px 0px;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+img.exerice {
+  float: right;
+  max-width: 350px;
+}
+
+img.star {
+  max-width: 32px;
+}
+
+div.carte {
+  border: 2px solid #137854;
+  padding: 8px;
+  float: left;
+  width: 240px;
+  margin: 15px;
+
+  p {
+    text-align: center;
+  }
+
+  h3,
+  h4 {
+    text-align: center;
+    padding: 3px;
+    margin: 5px;
+  }
+}
+

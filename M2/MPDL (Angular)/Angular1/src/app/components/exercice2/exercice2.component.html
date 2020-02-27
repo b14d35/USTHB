@@ -1,0 +1,179 @@
+<app-header [title]="'Exercice 2'"></app-header>
+<!--<img class="exerice" src="/assets/thinking.jpg" />-->
+
+<div class="form-group">
+  <div class="clientInfos col-md-4" *ngIf="etape === 1">
+    <h3 class="titre1">Information du client </h3>
+    <div class="form-group">
+      <label>Nom: </label>
+      <input type="text" class="form-control" [(ngModel)]="nomCLient" required />
+    </div>
+    <div class="form-group">
+      <label>Prenom: </label>
+      <input type="text" class="form-control" [(ngModel)]="prenomClient" required />
+    </div>
+    <div class="form-check">
+      <label>Sexe: </label>
+      <br />
+      <div class="row">
+        <div class="col-lg-4">
+          <input type="radio" name="sexe" value="Homme" class="form-check-input" [(ngModel)]="sexeClient" />
+          <label class="form-check-label"> Homme </label>
+        </div>
+        <div class="col-lg-4">
+          <input type="radio" name="sexe" value="Femme" class="form-check-input" [(ngModel)]="sexeClient" />
+          <label class="form-check-label"> Femme </label>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="form-check">
+      <label>Situation: </label>
+      <br />
+      <div class="row">
+        <div class="col-lg-4">
+          <input type="radio" name="situation" value="Celebataire" class="form-check-input"
+            [(ngModel)]="situationCLient" />
+          <label class="form-check-label"> Celebataire </label>
+        </div>
+        <div class="col-lg-4">
+          <input type="radio" name="situation" value="Marie" class="form-check-input" [(ngModel)]="situationCLient" />
+          <label class="form-check-label"> Marie </label>
+        </div>
+        <div class="col-lg-4">
+          <input type="radio" name="situation" value="Divorce" class="form-check-input" [(ngModel)]="situationCLient" />
+          <label class="form-check-label"> Divorce </label>
+        </div>
+      </div>
+    </div>
+    <br>
+    <p class="erreur"> {{ nomOUprenom }} </p>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-lg-3">
+          <button class="btn btn-primary" (click)="ajouterClient()">Ajouter</button>
+        </div>
+        <div class="col-lg-4">
+          <button class="btn btn-danger" (click)="supprimerInfos()">Vider</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reservationInfos col-md-4" *ngIf="etape === 2">
+    <p> {{ 'Client : ' + client.getInfos() }} </p>
+    <br />
+    <div class="form-group">
+      <label>Hebergements:</label><br />
+      <select class="form-control" name="choix" multiple [(ngModel)]="choixUser" size="8" required>
+        <option *ngFor="let x of hebergementsHotel" value="{{ x.numero }}">
+          {{ x.getInfos() }}
+        </option>
+      </select>
+    </div>
+    <br />
+    <div class="form-group">
+      <label>Date Debut:</label>
+      <input type="date" name="dateDebut" class="form-control" [(ngModel)]="dateDebut" required />
+      <br />
+      <label>Date Fin:</label>
+      <input type="date" name="dateFin" class="form-control" [(ngModel)]="dateFin" required />
+    </div>
+    <br />
+    <p class="erreur"> {{ erreurReserve }} </p>
+    <p class="erreur"> {{ erreurDate }} </p>
+    <p class="erreur"> {{ erreurDate2 }} </p>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-lg-3">
+          <button class="btn btn-primary" (click)="affecterSejour()">Reserver</button>
+        </div>
+        <div class="col-lg-3">
+          <button class="btn btn-danger" (click)="viderInfosSejour()">Vider</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="services col-md-12" *ngIf="etape === 3">
+    <div class="row">
+      <div class="col-md-4">
+        <p> {{ 'Client : ' + client.getInfos() }} </p>
+        <p> {{ 'Debut Sejour: ' + client.sejour.dateD.toLocaleString() }} </p>
+        <p> {{ 'Fin Sejour: ' + client.sejour.dateF.toLocaleString() }} </p>
+        <p> {{ 'Duree Sejour: ' + client.sejour.nbJours() }} </p>
+        <p class="prixTotal"> {{ 'Prix Total Sejour: ' + client.prixTotalSejour() }} </p>
+      </div>
+      <div class="col-md-4 form-group">
+        <label>Services:</label><br />
+        <select class="form-control" size="6" name="choix" [(ngModel)]="choixService">
+          <option *ngFor="let x of servicesHotel" value="{{ x.id }}">
+            {{ x.getInfos() }}
+          </option>
+        </select>
+      </div>
+      <div *ngIf="choixService !== 0" class="col-md-4 form-group">
+        <br />
+        <label>Nombre de place:</label>
+        <input type="number" class="form-control" [(ngModel)]="nbPrs" />
+        <br />
+        <button class="btn btn-success" [disabled]="nbPrs === 0" (click)="ajouterService()">
+          Ajouter
+        </button>
+        <p class="erreur"> {{ depassement }} </p>
+      </div>
+    </div>
+    <hr>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <table>
+            <tr>
+              <td colspan="5">Mes Hebergements</td>
+            </tr>
+            <tr>
+              <td> Type </td>
+              <td> Etage </td>
+              <td> Nombre Lits </td>
+              <td> Prix/Jour </td>
+              <td> Prix Total </td>
+            </tr>
+            <tr *ngFor="let x of client.sejour.hebergements">
+              <td> {{ x.type }} </td>
+              <td> {{ x.etage }} </td>
+              <td> {{ x.nbLits }} </td>
+              <td> {{ x.prix }} </td>
+              <td> {{ x.prix * client.sejour.nbJours() }} </td>
+            </tr>
+            <tr>
+              <td colspan="4"> Prix Total Hebergement: </td>
+              <td> {{ client.prixTotalHebergement() }} </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <table *ngIf="client.services.length !== 0">
+            <tr>
+              <td colspan="5">Mes Services</td>
+            </tr>
+            <tr>
+              <td> Type </td>
+              <td> Prix/Personne </td>
+              <td> Nombre de Personnes </td>
+              <td> Prix Total </td>
+            </tr>
+            <tr *ngFor="let x of client.services">
+              <td> {{ x.service.type }} </td>
+              <td> {{ x.service.prix }} </td>
+              <td> {{ x.nbrPersonnes }} </td>
+              <td> {{ x.calculerPrix() }} </td>
+            </tr>
+            <tr>
+              <td colspan="3"> Prix Total Services: </td>
+              <td> {{ client.prixTotalService() }} </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

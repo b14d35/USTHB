@@ -1,0 +1,14 @@
+<app-header [title]="'Exercice 1'"></app-header>
+
+<div id="horloge">
+  <img class="same" src="/assets/panel.jpg">
+  <img class="same aiguille"
+    [ngStyle]="{'-webkit-transform': 'rotate('+secondDeg+'deg)', '-moz-transform': 'rotate('+secondDeg+'deg)', '-ms-transform': 'rotate('+secondDeg+'deg)', '-o-transform': 'rotate('+secondDeg+'deg)', 'transform': 'rotate('+secondDeg+'deg)'}"
+    src="/assets/second.png">
+  <img class="same aiguille"
+    [ngStyle]="{'-webkit-transform': 'rotate('+minuteDeg+'deg)', '-moz-transform': 'rotate('+minuteDeg+'deg)', '-ms-transform': 'rotate('+minuteDeg+'deg)', '-o-transform': 'rotate('+minuteDeg+'deg)', 'transform': 'rotate('+minuteDeg+'deg)'}"
+    src="/assets/minute.png">
+  <img class="same aiguille"
+    [ngStyle]="{'-webkit-transform': 'rotate('+heureDeg+'deg)', '-moz-transform': 'rotate('+heureDeg+'deg)', '-ms-transform': 'rotate('+heureDeg+'deg)', '-o-transform': 'rotate('+heureDeg+'deg)', 'transform': 'rotate('+heureDeg+'deg)'}"
+    src="/assets/hour.png">
+</div>

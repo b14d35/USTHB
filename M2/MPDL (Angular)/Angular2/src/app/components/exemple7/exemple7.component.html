@@ -1,0 +1,14 @@
+<app-header [title]="'AJAX'"></app-header>
+<div>
+    <button (click)="getData()">Get Data</button>
+</div>
+<ul>
+    <li *ngFor="let c of data"> {{c.name}} | {{c.capital}}</li>
+</ul>
+<div class="loader" *ngIf="loading">
+    <span>Loading...</span>
+    <img src="/assets/loader.gif" />
+</div>
+<div class="error" *ngIf="error">
+    <span>Oups ! Something went wrong</span>
+</div>

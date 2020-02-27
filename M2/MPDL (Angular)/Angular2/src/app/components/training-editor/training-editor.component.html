@@ -1,0 +1,18 @@
+<p>Title : <input type="text" [(ngModel)]="title" /></p>
+<p>Domain : 
+    <select [(ngModel)]="domain">
+        <option>Frontend</option>
+        <option>Backend</option>
+        <option>Backend</option>
+    </select>
+</p>
+<p>Evaluation : 
+    <select [(ngModel)]="evaluation" value="1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+</p>
+<p><button (click)="add()">add</button></p>

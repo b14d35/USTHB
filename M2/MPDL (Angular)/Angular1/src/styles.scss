@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding: 15px;
+}
+
+ul.menu {
+  margin: 10px 0px;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+img.exerice {
+  float: right;
+}

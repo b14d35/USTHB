@@ -1,0 +1,7 @@
+<app-header [title]="'Countries API'"></app-header>
+<div>
+    <button (click)="getData()">Get Data</button>
+</div>
+<ul>
+    <li *ngFor="let c of data"> {{c.name}} | {{c.capital}}</li>
+</ul>

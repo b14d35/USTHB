@@ -1,0 +1,266 @@
+<app-header [title]="'Exercice 2'"></app-header>
+<html class="no-js" lang="zxx">
+
+<head>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/css/nice-select.css">
+  <link rel="stylesheet" href="/assets/css/gijgo.css">
+  <link rel="stylesheet" href="/assets/css/animate.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-area">
+      <div class="choose_film_area">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-lg-2">
+              <div class="form_area">
+                <div><a href="#"> <img style="border-radius:10px; " src="/assets/img/logo.jpeg" alt="logo"> </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-10">
+              <div class="search_wrap">
+                <form class="search_form" action="#">
+                  <div class="input_field col-lg-5 col-xs-12 col-sm-12">
+                    <input type="text" placeholder="Chercher un film ?" [(ngModel)]="query" name="query">
+                  </div>
+                  <div class="input_field">
+                    <input name="year" placeholder="Anee" [(ngModel)]="year">
+                  </div>
+                  <div class="input_field">
+                    <select name="language" [(ngModel)]="language">
+                      <option value="fr">Français</option>
+                      <option value="en">Anglais</option>
+                    </select>
+                  </div>
+                  <div class="search_btn">
+                    <button class="boxed-btn4" (click)="search(1)">Search</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- header-end -->
+  <div class="principal_page">
+    <!-- slider_area_start -->
+    <div class="slider_area" *ngIf="show===0">
+      <h3> {{ this.resultSearchLatest?.results[this.currentSlide].title }} </h3>
+      <p> {{ 'Popularité: '+ this.resultSearchLatest?.results[this.currentSlide].popularity }} </p>
+      <div class="rating_days d-flex justify-content-between">
+        <span class="d-flex justify-content-center align-items-center">
+          <i *ngFor="let i of getStars(this.resultSearchLatest?.results[this.currentSlide].vote_average)"
+            class="fa fa-star"></i>
+          <a href="#"> {{ '('+this.resultSearchLatest?.results[this.currentSlide].vote_count+' Votes)' }}</a>
+        </span>
+        <div class="days">
+          <i class="fa fa-clock-o"></i>
+          <a href="#"> {{ this.resultSearchLatest?.results[this.currentSlide].release_date }} </a>
+        </div>
+      </div>
+      <div class="slider_active owl-carousel">
+        <div class="single_slider  d-flex align-items-center slider_bg_1 overlay"
+          [ngStyle]="{'background-image': 'url('+((this.resultSearchLatest?.results[this.currentSlide].poster_path !== null) ? 'https://image.tmdb.org/t/p/original/'+this.resultSearchLatest?.results[this.currentSlide].poster_path : this.noImage)+')'}">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-xl-12 col-md-12">
+                <div class="btn_details">
+                  <a (click)="movie(this.resultSearchLatest?.results[this.currentSlide].id)" class="boxed-btn3">Details
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider_area" *ngIf="show===1">
+      <h3> {{ this.resultSearch?.results[this.currentSlide].title }} </h3>
+      <p> {{ 'Popularité: '+ this.resultSearch?.results[this.currentSlide].popularity }} </p>
+      <div class="rating_days d-flex justify-content-between">
+        <span class="d-flex justify-content-center align-items-center">
+          <i *ngFor="let i of getStars(this.resultSearch?.results[this.currentSlide].vote_average)"
+            class="fa fa-star"></i>
+          <a href="#"> {{ '('+this.resultSearch?.results[this.currentSlide].vote_count+' Votes)' }}</a>
+        </span>
+        <div class="days">
+          <i class="fa fa-clock-o"></i>
+          <a href="#"> {{ this.resultSearch?.results[this.currentSlide].release_date }} </a>
+        </div>
+      </div>
+      <div class="slider_active owl-carousel">
+        <div class="single_slider  d-flex align-items-center slider_bg_1 overlay"
+          [ngStyle]="{'background-image': 'url('+((this.resultSearch?.results[this.currentSlide].poster_path !== null) ? 'https://image.tmdb.org/t/p/original/'+this.resultSearch?.results[this.currentSlide].poster_path : this.noImage)+')'}">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-xl-12 col-md-12">
+                <div class="btn_details">
+                  <a (click)="movie(this.resultSearch?.results[this.currentSlide].id)" class="boxed-btn3">Details </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- slider_area_end -->
+
+    <div class="popular_film_area" *ngIf="show===1 && showMovie===0">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6" *ngFor="let data of this.resultSearch.results.slice(8)">
+            <div class="single_film" style="height:520px;" (click)="movie(data.id)">
+              <div class="thumb">
+                <img
+                  [src]="((data.poster_path !== null) ? 'https://image.tmdb.org/t/p/original/'+data.poster_path : this.noImage)"
+                  alt="" style="height:320px;">
+                <a class="prise">Details</a>
+              </div>
+              <div class="film_info">
+                <a href="#">
+                  <h3> {{ data.title }} </h3>
+                </a>
+                <p> {{ 'Popularité: '+ data.popularity }} </p>
+                <div class="rating_days d-flex justify-content-between">
+                  <span class="d-flex justify-content-center align-items-center">
+                    <i *ngFor="let i of getStars(data.vote_average)" class="fa fa-star"></i>
+                    <a href="#"> {{ '('+data.vote_count+' Votes)' }}</a>
+                  </span>
+                  <div class="days">
+                    <i class="fa fa-clock-o"></i>
+                    <a href="#"> {{ data.release_date }} </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="more_place_btn text-center">
+              <a class="boxed-btn4" *ngIf="this.page === 1">###</a>
+              <a class="boxed-btn4" *ngIf="this.page !== 1" (click)="search(this.page-1)">Page précédente</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="more_place_btn text-center">
+              <a class="boxed-btn4" *ngIf="this.page === this.resultSearch.total_pages">###</a>
+              <a class="boxed-btn4" *ngIf="this.page !== this.resultSearch.total_pages"
+                (click)="search(this.page+1)">Page suivante</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- details d'un film -->
+  <div class="info_film" *ngIf="this.showMovie !== 0">
+    <!-- bradcam_area  -->
+    <div class="bradcam_area"
+      [ngStyle]="{'background-image': 'url('+((mov.poster_path !== null) ? 'https://image.tmdb.org/t/p/original/'+mov.poster_path : this.noImage)+')'}">
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="about_story">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="story_heading">
+              <h3> {{ mov.title }} </h3>
+            </div>
+            <div class="row">
+              <div class="col-lg-11 offset-lg-1">
+                <div class="story_info">
+                  <div class="row">
+                    <div class="col-lg-9">
+                      <p> {{ mov.overview }} </p>
+                    </div>
+                    <div class="col-lg-3">
+                      <button class="boxed-btn4" (onclick)="hideMovie()">X</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="video_area video_bg overlay">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="video_wrap text-center">
+                          <h3> {{ mov.videos.results[0].name }} </h3>
+                          <iframe
+                            [src]="sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/'+mov.videos.results[0].key)"
+                            width='500' height='250' frameborder="0" allowfullscreen></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="counter_wrap">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                      <div class="single_counter text-center">
+                        <h3 class="counter">Produit par
+                        </h3>
+                        <p *ngFor="let x of mov.production_companies"> {{  '|'+x.name+'|' }} </p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                      <div class="single_counter text-center">
+                        <h3 class="counter"> Budget </h3>
+                        <p> {{ mov.budget }} </p>
+                        <h3 class="counter"> Site </h3>
+                        <p><a [href]="mov.homepage">Click here !</a></p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                      <div class="single_counter text-center">
+                        <h3 class="counter">Categories</h3>
+                        <p *ngFor="let y of mov.genres"> {{ y.name }} </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <footer class="footer">
+
+    <div class="copy-right_text">
+      <div class="container">
+        <div class="footer_border"></div>
+        <div class="row">
+          <div class="col-xl-12">
+            <p class="copy_right text-center">
+
+              Copyright &copy; All rights reserved | travail réalisé par Ben Mohand Nadir et Kaci Ahmed
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<h1>Angular Training</h1>
+<ul class="menu">
+    <li><button (click)="setExample(1)">Example 1 - JS</button></li>
+    <li><button (click)="setExample(2)">Example 2 - Opéarateurs</button></li>
+    <li><button (click)="setExample(3)">Example 3 - Fonctions</button></li>
+    <li><button (click)="setExample(4)">Example 4 - Arrays</button></li>
+    <li><button (click)="setExample(5)">Example 5 - Classes</button></li>
+    <li><button (click)="setExample(6)">Example 6 - Interfaces</button></li>
+    <li><button (click)="setExample(7)">Exercice 1</button></li>
+    <li><button (click)="setExample(8)">Exercice 2</button></li>
+</ul>
+<app-example1 *ngIf="currentExample===1"></app-example1>
+<app-example2 *ngIf="currentExample===2"></app-example2>
+<app-example3 *ngIf="currentExample===3"></app-example3>
+<app-example4 *ngIf="currentExample===4"></app-example4>
+<app-example5 *ngIf="currentExample===5"></app-example5>
+<app-example6 *ngIf="currentExample===6"></app-example6>
+<app-exercice1 *ngIf="currentExample===7"></app-exercice1>
+<app-exercice2 *ngIf="currentExample===8"></app-exercice2>

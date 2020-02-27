@@ -1,0 +1,33 @@
+table tr td {
+  border: 2px solid black;
+  font-size: 25px;
+  width: 30px;
+  text-align: center;
+}
+
+.tab1 {
+  color: green;
+}
+
+.tab2 {
+  color:blue;
+}
+
+.somme {
+  color: violet;
+}
+
+.soust {
+  color:orangered;
+}
+
+.concat {
+  color: cyan;
+}
+
+.fusion {
+  color: red;
+}
+.erreur{
+  color: red;
+}

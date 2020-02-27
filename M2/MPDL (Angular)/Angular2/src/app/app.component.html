@@ -1,0 +1,24 @@
+<h1>Angular Training</h1>
+<ul class="menu">
+    <li><button (click)="setExample(1)">Example 1 - Hello Observables !</button></li>
+    <li><button (click)="setExample(2)">Example 2 - Events</button></li>
+    <li><button (click)="setExample(3)">Example 3 - Functions</button></li>
+    <li><button (click)="setExample(4)">Example 4 - Operators</button></li>
+    <li><button (click)="setExample(5)">Example 5 - Sharing</button></li>
+    <li><button (click)="setExample(6)">Example 6 - Countries API</button></li>
+    <li><button (click)="setExample(7)">Example 7 - AJAX</button></li>
+    <li><button (click)="setExample(8)">Example 8 - Cache</button></li>
+    <li><button (click)="setExample(10)">Exercice 1</button></li>
+    <li><button (click)="setExample(11)">Exercice 2</button></li>
+</ul>
+
+<app-exemple1 *ngIf="currentExample===1"></app-exemple1>
+<app-exemple2 *ngIf="currentExample===2"></app-exemple2>
+<app-exemple3 *ngIf="currentExample===3"></app-exemple3>
+<app-exemple4 *ngIf="currentExample===4"></app-exemple4>
+<app-exemple5 *ngIf="currentExample===5"></app-exemple5>
+<app-exemple6 *ngIf="currentExample===6"></app-exemple6>
+<app-exemple7 *ngIf="currentExample===7"></app-exemple7>
+<app-exemple8 *ngIf="currentExample===8"></app-exemple8>
+<app-exercice1 *ngIf="currentExample===10"></app-exercice1>
+<app-exercice2 *ngIf="currentExample===11"></app-exercice2>
